@@ -13,13 +13,13 @@ Purpose of the App: to manage inventories
 
 User Stories
 
-* Wireframe what the app pages will look like. (7/10)
-* create data samples for cellos, bows, accessories, makers, employees (7/11)
-* Create a first HTML template for a Home page (DashBoard /home) (7/11)
-* Create a first HTML template for a product index page with edit and delete buttons on each product (7/11)
-* Create a first HTML template for a product detail page with edit and delete buttons (7/11)
-* Create a first HTML template for a product Add form page with ability to add new maker (7/11)
-* Create a first HTML template for a product edit form page (7/11)
+* Wireframe and ERD what the app pages will look like. (7/10)
+* create data samples for cellos, bows, accessories, makers, employees (7/11 - LN)
+* Create a first HTML template for a Header/nav/logo page (DashBoard /home) (7/11 - TSY)
+* Create a first HTML template for a Home page (DashBoard /home) (7/11 - TSY)
+* Create a first HTML template for a product index page with edit and delete buttons on each product (7/11 - TSY)
+* Create a first HTML template for a product detail page with edit and delete buttons (7/11 - LN)
+* Create a first HTML template for a product add/edit form page with ability to add new maker (7/11 - LN)
 * Write a server route to serve the Home page (7/12)
 * Create a schema for cellos, bows, accessories, makers, employee include defining properties (7/12)
 * CREATE a page / form / route to create a product in the database. (7/12)
@@ -55,6 +55,7 @@ cellos = ({
     price: {type: Number, required: true},
     cost: {type: Number, required: true},
     status: {type: String, required: true}, // 'in stock', 'sold out', 'repair'
+    quantity: {type: Number, required: true},
     players: [String], // ['this will display a list of famous players']
     description: String, // 'history of the cello in proze'
     photo: String, // 'urls',
@@ -69,15 +70,18 @@ cellos = ({
     timeStamp
 })
 
-bows = ({
+accesories = ({
     name: {type: String, required: true}, // {Makers.name}
+    brand: String,
     year: number, // 2020
     price: {type: Number, required: true},
     cost: {type: Number, required: true},
-    status: {type: String, required: true}, // 'in stock', 'sold out', 'repair'
+    quantity: {type: Number, required: true},
+    status: {type: Boolean, required: true},
+    type: String, // generic name (i.e. bows, case, etc.)
     description: String,
     photo: String, // 'urls', 
-    forInstrument: String, // 'cello'
+    forInstrument: [String], // 'cello'
     maker: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Maker'
@@ -87,17 +91,6 @@ bows = ({
         ref: 'Accesories'
     }],
     timeStamp
-})
-
-accesories = ({
-    name: {type: String, required: true}, // 'awesome case' 
-    brand: String,
-    price: {type: Number, required: true},
-    cost: {type: Number, required: true},
-    status: {type: String, required: true}, // 'in stock', 'sold out', 'repair'
-    type: String, // generic name (i.e. case)
-    forInstrument: [String], // cello
-    photo: String, //'urls', 
 })
 
 makers = ({
