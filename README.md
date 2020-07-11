@@ -78,7 +78,6 @@ accesories = ({
 * price: {type: Number, required: true},
 * cost: {type: Number, required: true},
 * quantity: {type: Number, required: true},
-* status: {type: Boolean, required: true},
 * type: String, // generic name (i.e. bows, case, etc.)
 * description: String,
 * photo: String, // 'urls', 
