@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Index</title>
+</head>
+<body>
+    <header>
+        <%- include('./header.ejs') %>
+    </header>
+    <main>
+        <section class="products">
+            <h2><%= producttype %></h2>
+            <div>generic product type image place holder</div>
+            <table class="product-table">
+                <tr class="table-heading">
+                    <th class="table-column name-column">Name</th>
+                    <th class="table-column status-column">Status</th>
+                    <th class="table-column qty-column">Quantity</th>
+                    <th class="table-column price-column">Price</th>
+                    <th class="table-column cost-column">Cost</th>
+                    <th class="table-column edit-column"></th>
+                    <th class="table-column delete-column"></th>
+                </tr>
+                <tr> class="table-data"
+                    <% products.forEach(product=> { %>
+                        <td>
+                            <a href="/<%= producttype %>/<%= product._id %>">
+                                <% if (producttype !== "accessories") { %>
+                                    <%= product.maker.name %> <%= product.year %> <br>
+                                    <%= product.title %>
+                                <% } else { %>
+                                    <%= product.name %>
+                                <% } %>
+                            </a>
+                        </td>
+                        <td><%= product.status %></td>
+                        <td><%= product.quantity %></td>
+                        <td><%= product.price %></td>
+                        <td><%= product.cost %></td>
+                        <td>
+                            <form action="/<%= producttype %>/<%= product._id %>/edit" method="GET">
+                                <button type="submit">Update</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/<%= producttype %>/<%= product._id %>$_method=DELETE" method="POST">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    <% }) %>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
