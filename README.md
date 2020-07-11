@@ -47,7 +47,22 @@ Enhancements
 * Shop events
 * employess details (names, salaries, strat date, etc)
 
-Databases:
+Technology: Express, MongoDB, Mongoose, Javascript, HTML, CSS
+
+Wireframes
+
+![Dashboard page](./project-asset/dashboard.png)
+![Product index page](./project-asset/index-pages.png)
+![Product show page](./project-asset/show.png)
+![Product add/edit page](./project-asset/add-edit.png)
+
+future enhancement - loging page
+![App login page](./project-asset/home-page.png)
+
+ERD
+![ERD](./project-asset/ERD.png)
+
+Databases
 
 cellos = ({
 * title: {type: String}, // 'some fancy name'; but prefered hue hue,
