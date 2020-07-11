@@ -50,60 +50,61 @@ Enhancements
 Databases:
 
 cellos = ({
-    title: {type: String}, // 'some fancy name'; but prefered hue hue,
-    year: {type: Number, required: true}, // 1650
-    price: {type: Number, required: true},
-    cost: {type: Number, required: true},
-    status: {type: String, required: true}, // 'in stock', 'sold out', 'repair'
-    quantity: {type: Number, required: true},
-    players: [String], // ['this will display a list of famous players']
-    description: String, // 'history of the cello in proze'
-    photo: String, // 'urls',
-    maker: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Maker'
-    }],
-    accesories: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Accesories'
-    }],
-    timeStamp
+* title: {type: String}, // 'some fancy name'; but prefered hue hue,
+* year: {type: Number, required: true}, // 1650
+* categories: {type: String, required: true}, // 'cello', 'future product'
+* price: {type: Number, required: true},
+* cost: {type: Number, required: true},
+* status: {type: String, required: true}, // 'in stock', 'sold out', 'repair'
+* quantity: {type: Number, required: true},
+* players: [String], // ['this will display a list of famous players']
+* description: String, // 'history of the cello in proze'
+* photo: String, // 'urls',
+* maker: [{
+*   type: mongoose.Schema.Types.ObjectId,
+*   ref: 'Maker'
+* }],
+* accesories: [{
+*   type: mongoose.Schema.Types.ObjectId,
+*   ref: 'Accesories'
+* }],
+* timeStamp
 })
 
 accesories = ({
-    name: {type: String, required: true}, // {Makers.name}
-    brand: String,
-    year: number, // 2020
-    price: {type: Number, required: true},
-    cost: {type: Number, required: true},
-    quantity: {type: Number, required: true},
-    status: {type: Boolean, required: true},
-    type: String, // generic name (i.e. bows, case, etc.)
-    description: String,
-    photo: String, // 'urls', 
-    forInstrument: [String], // 'cello'
-    maker: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Maker'
-    }],
-    accesories: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Accesories'
-    }],
-    timeStamp
+* name: {type: String, required: true}, // {Makers.name}
+* brand: String,
+* year: number, // 2020
+* price: {type: Number, required: true},
+* cost: {type: Number, required: true},
+* quantity: {type: Number, required: true},
+* status: {type: Boolean, required: true},
+* type: String, // generic name (i.e. bows, case, etc.)
+* description: String,
+* photo: String, // 'urls', 
+* forInstrument: [String], // 'cello'
+* maker: [{
+*   type: mongoose.Schema.Types.ObjectId,
+*   ref: 'Maker'
+* }],
+* accesories: [{
+*   type: mongoose.Schema.Types.ObjectId,
+*   ref: 'Accesories'
+* }],
+* timeStamp
 })
 
 makers = ({
-    name: {type: String, required: true}, // {Makers.name}
-    bio: String,
-    photo: String, //'urls', 
+* name: {type: String, required: true}, // {Makers.name}
+* bio: String,
+* photo: String, //'urls', 
 })
 
 employees = ({
-    name: {type: String, required: true}, // 'Darth Vader' 
-    Title: String,  // 'manager'
-    password: {type: String, required: true},
-    access: {type: Boolean, required: true},
-    accessLevel: {type: String, required: true}, // 'full access', 'view only'
+* name: {type: String, required: true}, // 'Darth Vader' 
+* Title: String,  // 'manager'
+* password: {type: String, required: true},
+* access: {type: Boolean, required: true},
+* accessLevel: {type: String, required: true}, // 'full access', 'view only'
 })
 
