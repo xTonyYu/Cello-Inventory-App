@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cello Inventory Dashboard</title>
+    <title>Cellos & Violins Dashboard</title>
 </head>
 <body>
-    
+    <header>
+        <%- include('./header.ejs') %>
+    </header>
+    <main>
+        <% productTypes.forEach(type => { %>
+            <section class="product-type">
+                <h3><%= type.name %></h3>
+                <div class="product-display">
+                    <p>Quantity: <%= type.quantity %></p>
+                    <p>Average Price: <%= type.avgPrice %></p>
+                    <p>Average Cost: <%= type.avgCost %></p>
+                    <p>Average Margin: <%= type.avgMargin %></p>
+                    <p>Qty of items > Avg Price: <%= type.qtyGtAvg %></p>
+                    <p>Qty of items < Avg Price: <%= type.qtyLeAvg %></p>
+                    <div class="chart">
+                        chart
+                    </div>
+                </div>
+            </section>
+        <% }) %>
+        <section class="finances">
+            <h3>Monthly Finances</h3>
+            <div class="finance-display">
+                <p>Sales:        $1,254,672</p>
+                <p>Inventory cost: $785,624</p>
+                <p>Operation Cost: $328,356</p>
+                <p>Profit Margin:  $140,692</p>
+                <div class="chart">
+                    historical sales chart
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="about-us">
+            <h4>Tony Yu</h4>
+            <p>Brand Statment</p>
+            <div class="contact-info">
+                <h5>Contact Info</h5>
+                <a href="#">email: xtonyyu@gmail.com</a>
+                <a href="#">LinkedIn link and logo</a>
+                <a href="#">GitHub link and logo</a>
+            </div>
+        </section>
+        <section class="about-us">
+            <h4>Lucian Nicolescu</h4>
+            <p>Brand Statment</p>
+            <div class="contact-info">
+                <h5>Contact Info</h5>
+                <a href="#">email: lucian.nicolescu.cello@gmail.com</a>
+                <a href="#">LinkedIn link and log</a>
+                <a href="#">GitHub link and logo</a>
+            </div>
+        </section>
+    </footer>
 </body>
 </html>
