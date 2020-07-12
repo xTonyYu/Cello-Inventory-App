@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const celloSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     title: {
         type: String,
     },
@@ -46,6 +46,6 @@ const celloSchema = new mongoose.Schema({
     }],
 }, {timestamps: true});
 
-const Cello = mongoose.model('Cello', celloSchema);
+const Product = mongoose.model('Product', celloSchema);
 
-module.exports = Cello;
+module.exports = Product;
