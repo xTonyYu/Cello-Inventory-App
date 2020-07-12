@@ -13,5 +13,6 @@ mongoose.connect(MONGODB_URI, {
 module.exports = {
   Cello: require('./cellos'),
   Accesories: require('./accessories'),
-  Makers: require('./makers')
+  Makers: require('./makers'),
+  Employee: require('./employees')
 };

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { model } = require('./accessories');
 
 const makerSchema = new mongoose.Schema({
     name: {
