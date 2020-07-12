@@ -10,8 +10,8 @@
         <%- include('./header.ejs') %>
     </header>
     <main>
-        <% products.forEach(type => { %>
-            <section class="product">
+        <% productTypes.forEach(type => { %>
+            <section class="product-type">
                 <h3><%= type.name %></h3>
                 <div class="product-display">
                     <p>Quantity: <%= type.quantity %></p>
@@ -26,9 +26,9 @@
                 </div>
             </section>
         <% }) %>
-        <section class="coreproduct">
+        <section class="finances">
             <h3>Monthly Finances</h3>
-            <div class="Sales-display">
+            <div class="finance-display">
                 <p>Sales:        $1,254,672</p>
                 <p>Inventory cost: $785,624</p>
                 <p>Operation Cost: $328,356</p>

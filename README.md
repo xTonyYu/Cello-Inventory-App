@@ -47,12 +47,33 @@ Enhancements
 * Shop events
 * employess details (names, salaries, strat date, etc)
 
-Databases:
+Technology
+
+* Express, MongoDB, Mongoose, Javascript, HTML, CSS
+
+Wireframes
+
+Dashboard... 
+![Dashboard page](./project-asset/dashboard.png)
+Product Index page...
+![Product index page](./project-asset/index-pages.png)
+Prodcut Show page...
+![Product show page](./project-asset/show.png)
+Add/edit...
+![Product add/edit page](./project-asset/add-edit.png)
+
+future enhancement - loging page
+![App login page](./project-asset/home-page.png)
+
+ERD
+![ERD](./project-asset/ERD.png)
+
+Databases
 
 cellos = ({
 * title: {type: String}, // 'some fancy name'; but prefered hue hue,
 * year: {type: Number, required: true}, // 1650
-* categories: {type: String, required: true}, // 'cello', 'future product'
+* type: {type: String, required: true}, // 'cello', 'future product'
 * price: {type: Number, required: true},
 * cost: {type: Number, required: true},
 * status: {type: String, required: true}, // 'in stock', 'sold out', 'repair'
@@ -64,32 +85,20 @@ cellos = ({
 *   type: mongoose.Schema.Types.ObjectId,
 *   ref: 'Maker'
 * }],
-* accesories: [{
-*   type: mongoose.Schema.Types.ObjectId,
-*   ref: 'Accesories'
-* }],
 * timeStamp
 })
 
 accesories = ({
 * name: {type: String, required: true}, // {Makers.name}
 * brand: String,
-* year: number, // 2020
 * price: {type: Number, required: true},
 * cost: {type: Number, required: true},
+* status: {type: String, default: 'in stock'}, // 'in stock', 'sold out'
 * quantity: {type: Number, required: true},
 * type: String, // generic name (i.e. bows, case, etc.)
 * description: String,
 * photo: String, // 'urls', 
 * forInstrument: [String], // 'cello'
-* maker: [{
-*   type: mongoose.Schema.Types.ObjectId,
-*   ref: 'Maker'
-* }],
-* accesories: [{
-*   type: mongoose.Schema.Types.ObjectId,
-*   ref: 'Accesories'
-* }],
 * timeStamp
 })
 
