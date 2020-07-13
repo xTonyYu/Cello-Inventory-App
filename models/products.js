@@ -1,16 +1,12 @@
 const mongoose = require('mongoose');
 const Maker = require('./makers')
 
-const celloSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     title: {
         type: String,
     },
     year: {
         type: Number,
-    },
-    category: {
-        type: String,
-        required: true,
     },
     price: {
         type: Number,
@@ -24,6 +20,10 @@ const celloSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    type: {
+        type: String,
+        required: true,
+    },
     quantity: {
         type: Number,
         required: true,
@@ -34,7 +34,7 @@ const celloSchema = new mongoose.Schema({
     description: {
         type: String,
     },
-    photos: {
+    photo: {
         type: String,
     },
     maker: [{
@@ -43,6 +43,6 @@ const celloSchema = new mongoose.Schema({
     }],
 }, {timestamps: true});
 
-const Cello = mongoose.model('Cello', celloSchema);
+const Product = mongoose.model('Product', productSchema);
 
-module.exports = Cello;
+module.exports = Product;

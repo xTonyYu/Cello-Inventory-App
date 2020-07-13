@@ -36,7 +36,7 @@ const dataCellos = [{
     year: 1740,
     price: 4000000,
     cost: 1500000,
-    status: 'repairs',
+    status: 'repair',
     type: 'cello',
     quantity: 1,
     players: ['David Popper'],
@@ -53,6 +53,7 @@ const dataCellos = [{
     cost: 200000,
     status: 'in stock',
     type: 'cello',
+    quantity: 1,
     players: 'Charles IX, King of France',
     description: 'The cello pictured here is called "The King," and is historically the most famous of all cellos. It was exhibited in 1968 at the Rockefeller University for the Conference on Scientific Aspects of Musical Instruments with the following information: "Violoncello by Andrea Amati, Cremona, not after 1574, body length 75.5 cm (reduced from larger dimensions). Neck and fittings modern. Painted and gilded with the arms, devices, and mottoes of Charles IX, King of France. Label probably a facsimile, dated 1572." Charles IX of France had ordered 38 instruments from Andrea Amati, including 8 "basses," and this instrument is thought to be one of them. The paintings are on the back and the sides, and there are decorations on the peg box as well (the peg box and scroll on this cello are original). On the centre of the back can be seen a crown over the remaining outline of the royal coat of arms, on either side of which is a figure. To the right is a figure of a woman and further to the right, a column, with a crown on top, and still another crown near the bottom of the instrument. On the left side, the figure is no longer visible, and only a portion of the column remains. The figures stand for Piety and Justice. The voice of this cello is remarkable. It possesses a beautiful, full-throated sound, vigorous enought to be heard in a concerto. The cello is basically the same as a modern cello, although it has been cut down. In every other respect than size, Andrea Amati made cellos as they are known today. For 200 years Andrea Amati and his descendents made these wonderful instruments.',
     photo: 'https://www.metmuseum.org/-/media/images/blogs/musical-instruments/2015/amati-cello-details/1.jpg?la=en'

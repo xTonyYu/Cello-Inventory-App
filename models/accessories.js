@@ -28,15 +28,17 @@ const accesorieSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    category: {
+    type: {
         type: String,
-        required: true,
     },
     descrption: {
         type: String,
     },
-    forInstrument: {
+    photo: {
         type: String,
+    },
+    forInstrument: {
+        type: [String],
     }
 }, {timestamps: true});
 
