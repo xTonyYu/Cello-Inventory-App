@@ -11,7 +11,7 @@ db.Product.deleteMany({},(err, deletedData) => {
     console.log('Delete all doc - resetting Product collection')
     db.Product.create(starter.dataCellos, (err, loadedData) => {
         if (err) console.log(err)
-        console.log("PRODUCT data loaded...")
+        console.log("PRODUCT data loaded")
     })
 })
 db.Accesory.deleteMany({},(err, deletedData) => {
@@ -80,10 +80,6 @@ router.get('/', (req, res) => {
             })
         });
     })
-    // res.render('test', {
-    //     test: 'dashboard page',
-    //     text: allProdTypesAndAccs[0]
-    // })
 })
 
 

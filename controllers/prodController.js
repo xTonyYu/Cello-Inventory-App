@@ -5,10 +5,16 @@ const router = express.Router()
 // ******------------ POST Route (CREATE) -----------******* //
 // get add new form page
 router.get('/new', (req, res) => {
+    const prodSchema = db.Product.schema.obj
+    const accessorySchema = db.Accesory.schema.obj
+    console.log('accessorySchema...', accessorySchema)
+    // TODO get key info for each collection and pass to ejs
+    // const makerKeys = db.Maker.schema.obj
     // TODO change below to actual view
-    res.render('test', {
-        test: req.productType,
-        text: 'Get Add new form'
+    res.render('testnew', {
+        prodType: req.productType,
+        prodSchema,
+        accessorySchema,
     });
 });
 
