@@ -25,9 +25,9 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     // TODO get data
     // TODO change below to actual view
-    res.render('test', {
-        test: req.productType,
-        text: 'Get product index page',
+    res.render('index', {
+        product: Product,
+        // text: 'Get product index page',
     });
 })
 

@@ -11,7 +11,7 @@
     </header>
     <main>
         <section class="products">
-            <h2><%= producttype %></h2>
+            <h2><%= product.type %></h2>
             <div>generic product type image place holder</div>
             <table class="product-table">
                 <tr class="table-heading">
@@ -23,10 +23,10 @@
                     <th class="table-column edit-column"></th>
                     <th class="table-column delete-column"></th>
                 </tr>
-                <tr class="table-row">
-                    <% products.forEach(product=> { %>
-                        <td class="clickable-row" data-href="/<%= producttype %>/<%= product._id %>">
-                            <% if (producttype !== "accessories") { %>
+                <% products.forEach(product => { %>
+                    <tr class="table-row">
+                        <td class="clickable-row" data-href="/<%= product.type %>/<%= product._id %>">
+                            <% if (product.type !== "accessories") { %>
                                 <%= product.maker.name %> <%= product.year %> <br>
                                 <%= product.title %>
                             <% } else { %>
@@ -38,17 +38,17 @@
                         <td><%= product.price %></td>
                         <td><%= product.cost %></td>
                         <td>
-                            <form action="/<%= producttype %>/<%= product._id %>/edit" method="GET">
+                            <form action="/<%= product.type %>/<%= product._id %>/edit" method="GET">
                                 <button type="submit">Update</button>
                             </form>
                         </td>
                         <td>
-                            <form action="/<%= producttype %>/<%= product._id %>$_method=DELETE" method="POST">
+                            <form action="/<%= product.type %>/<%= product._id %>$_method=DELETE" method="POST">
                                 <button type="submit">Delete</button>
                             </form>
                         </td>
-                    <% }) %>
-                </tr>
+                    </tr>
+                <% }) %>
             </table>
         </section>
     </main>
