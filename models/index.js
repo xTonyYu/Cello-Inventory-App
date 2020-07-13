@@ -11,7 +11,7 @@ mongoose.connect(MONGODB_URI, {
   .catch((err) => console.log(`MongoDB connection error: ${err}`));
 
 module.exports = {
-  Cello: require('./cellos'),
+  Product: require('./products'),
   Accesories: require('./accessories'),
   Makers: require('./makers'),
   Employee: require('./employees')

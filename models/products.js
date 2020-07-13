@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const celloSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     title: {
         type: String,
     },
@@ -20,7 +20,7 @@ const celloSchema = new mongoose.Schema({
         required: true,
     },
     status: {
-        type: Number,
+        type: String,
         required: true,
     },
     quantity: {
@@ -41,11 +41,11 @@ const celloSchema = new mongoose.Schema({
         ref: 'Maker',
     }],
     accesories: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Accesories'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Accesories'
     }],
 }, {timestamps: true});
 
-const Cello = mongoose.model('Cello', celloSchema);
+const Product = mongoose.model('Product', celloSchema);
 
-module.exports = Cello;
+module.exports = Product;
