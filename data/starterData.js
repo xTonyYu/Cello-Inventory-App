@@ -59,7 +59,7 @@ const dataCellos = [{
     photo: 'https://www.metmuseum.org/-/media/images/blogs/musical-instruments/2015/amati-cello-details/1.jpg?la=en'
 },
 {
-    name: 'W. Seifert Fine Pernambuco Cello Bow',
+    title: 'W. Seifert Fine Pernambuco Cello Bow',
     brand: 'W. Seifert',
     price: 945,
     cost: 250,

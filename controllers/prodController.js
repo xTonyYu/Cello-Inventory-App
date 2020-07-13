@@ -1,6 +1,7 @@
 const express = require('express');
 const db = require('../models');
 const { Product } = require('../models');
+const { dataAccessories } = require('../data/starterData');
 const router = express.Router()
 
 // ******------------ POST Route (CREATE) -----------******* //
@@ -35,9 +36,20 @@ router.get('/', (req, res) => {
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
     model.find((err, allData) => {
         if (err) console.log(err)
+        let dataResult = [];
+        if (prodType !== 'accessories') {
+            allData.forEach(item => {
+                console.log(item.type)
+                if (item.type === prodType) {
+                    dataResult.push(item)
+                }
+            })
+        } else {
+            dataResult = allData;
+        }
         res.render('index', {
             prodType: req.productType,
-            products: allData,
+            products: dataResult,
         });
     });
 })

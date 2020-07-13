@@ -32,12 +32,12 @@ app.use('/:productType', function(req, res, next) {
     // TODO below condition should based on what are in the coreproduct.type + accessories
     db.Product.distinct('type', (err, uniqueProdTypes) => {
         if (err) console.log(err)
+        if (uniqueProdTypes.includes(req.productType) || req.productType === 'accessories') {
+            next(); 
+        } else {
+            res.send("Sorry, page not found")
+        }
     })
-    if (req.productType === 'products' || req.productType === 'accessories') {
-        next(); 
-    } else {
-        res.send("Sorry, page not found")
-    }
 }, prodController);
 
 // ******------------ Server listening -----------******* //

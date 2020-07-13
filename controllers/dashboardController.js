@@ -47,7 +47,6 @@ router.get('/', (req, res) => {
                 });
                 const prodObj = {
                     name: prodType,
-                    indexPage: 'products',
                     quantity: totalQty,
                     avgPrice: totalPrice / totalQty,
                     avgCost: totalCost / totalQty,
@@ -68,7 +67,6 @@ router.get('/', (req, res) => {
                 })
                 const prodObj = {
                     name: 'accessories',
-                    indexPage: 'accessories',
                     quantity: totalQty,
                     avgPrice: totalPrice / totalQty,
                     avgCost: totalCost / totalQty,
