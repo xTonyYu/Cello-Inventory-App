@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     status: {
-        type: Number,
+        type: String,
         required: true,
     },
     quantity: {
@@ -41,8 +41,8 @@ const productSchema = new mongoose.Schema({
         ref: 'Maker',
     }],
     accesories: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Accesories'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Accesories'
     }],
 }, {timestamps: true});
 
