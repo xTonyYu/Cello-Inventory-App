@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Maker = require('./makers')
 
 const celloSchema = new mongoose.Schema({
     title: {
@@ -20,7 +21,7 @@ const celloSchema = new mongoose.Schema({
         required: true,
     },
     status: {
-        type: Number,
+        type: String,
         required: true,
     },
     quantity: {
@@ -39,10 +40,6 @@ const celloSchema = new mongoose.Schema({
     maker: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Maker',
-    }],
-    accesories: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Accesories'
     }],
 }, {timestamps: true});
 

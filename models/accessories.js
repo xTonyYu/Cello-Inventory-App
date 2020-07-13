@@ -19,6 +19,11 @@ const accesorieSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    status: {
+        type: String,
+        default: 'in stock',
+        required: true,
+    },
     quantity: {
         type: Number,
         required: true,
