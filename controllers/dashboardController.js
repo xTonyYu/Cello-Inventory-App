@@ -5,24 +5,22 @@ const router = express.Router()
 // ******-------- Starter Data loading - for initial build -------******* /// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 const starter = require('../data/starterData')
 
-// restting collection - rebuilding from scratch
+// restting collection - rebuilding from scratch; delete all then load
 db.Product.deleteMany({},(err, deletedData) => {
     if (err) console.log(err)
     console.log('Delete all doc - resetting Product collection')
+    db.Product.create(starter.dataCellos, (err, loadedData) => {
+        if (err) console.log(err)
+        console.log("PRODUCT data loaded...")
+    })
 })
 db.Accesory.deleteMany({},(err, deletedData) => {
     if (err) console.log(err)
     console.log('Delete all doc - resetting Accessory collection')
-})
-
-// loading starter data
-db.Product.create(starter.dataCellos, (err, loadedData) => {
-    if (err) console.log(err)
-    console.log("PRODUCT - loaded Data...", loadedData)
-})
-db.Accesory.create(starter.dataAccessories, (err, loadedData) => {
-    if (err) console.log(err)
-    // console.log("ACCESSORY - loaded Data...", loadedData)
+    db.Accesory.create(starter.dataAccessories, (err, loadedData) => {
+        if (err) console.log(err)
+        console.log("ACCESSORY data loaded")
+    })
 })
 
 
@@ -31,12 +29,11 @@ router.get('/', (req, res) => {
     let allProdTypesAndAccs = [];
     db.Product.find((err, coreProducts) => {
         if (err) console.log(err)
-        // calculate summarized stats 
-        console.log("fetching all product data...", coreProducts) // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         // find unique product types and group/display them separately
         db.Product.distinct('type', (err, uniqueProdTypes) => {
             if (err) console.log(err)
             console.log('uniqueProdTypes...', uniqueProdTypes)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+            // calculate summarized stats by each prod type 
             for (let index = 0; index < uniqueProdTypes.length; index++) {
                 const prodType = uniqueProdTypes[index];
                 let totalQty = 0, totalPrice = 0, totalCost = 0;
@@ -55,17 +52,38 @@ router.get('/', (req, res) => {
                     avgCost: totalCost / totalQty,
                     avgMargin: (totalPrice - totalCost) / totalQty,
                 }
-                console.log('prodObj...', prodObj)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
                 allProdTypesAndAccs.push(prodObj)
             }
             console.log('allProdTypesAndAccs...', allProdTypesAndAccs)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+            // TODO - get accessory data
+            db.Accesory.find((err, accessories) => {
+                let totalQty = 0, totalPrice = 0, totalCost = 0;
+                if (err) console.log(err)
+                accessories.forEach(accessory => {
+                    if (accessory.status !== 'sold out') {
+                        totalQty += accessory.quantity
+                        totalPrice += accessory.price
+                        totalCost += accessory.cost
+                    }
+                })
+                const prodObj = {
+                    name: 'Accessories',
+                    quantity: totalQty,
+                    avgPrice: totalPrice / totalQty,
+                    avgCost: totalCost / totalQty,
+                    avgMargin: (totalPrice - totalCost) / totalQty,
+                }
+                allProdTypesAndAccs.push(prodObj)
+                res.render('dashboard', {
+                    productTypes: allProdTypesAndAccs,
+                });
+            })
         });
-    // TODO - get accessory data
     })
-    res.render('test', {
-        test: 'dashboard page',
-        text: allProdTypesAndAccs[0]
-    })
+    // res.render('test', {
+    //     test: 'dashboard page',
+    //     text: allProdTypesAndAccs[0]
+    // })
 })
 
 

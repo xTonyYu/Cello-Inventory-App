@@ -11,6 +11,8 @@
         <%- include('./header.ejs') %>
     </header>
     <main>
+
+        <h1>NAME: <%= productTypes[0].name %></h1>
         <% productTypes.forEach(type => { %>
             <section class="product-type">
                 <h3><%= type.name %></h3>
@@ -19,8 +21,6 @@
                     <p>Average Price: <%= type.avgPrice %></p>
                     <p>Average Cost: <%= type.avgCost %></p>
                     <p>Average Margin: <%= type.avgMargin %></p>
-                    <p>Qty of items > Avg Price: <%= type.qtyGtAvg %></p>
-                    <p>Qty of items < Avg Price: <%= type.qtyLeAvg %></p>
                     <div class="chart">
                         chart
                     </div>
