@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Page</title>
+</head>
+<body>
+    <header>
+        <%- include('./header.ejs') %>
+    </header>
+    <main>
+        <h1>Edit <%= Product.category %></h1>
+
+        <form action="/product/<%= Product._id %>?_method=PUT" method="POST">
+            <% if (Product.name === true) { %> 
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value=<%= Product.name %> />
+            <% } %> 
+            <label for="year">Year</label>
+            <input type="number" id="year" name="year" value=<%= Product.year %>/>
+            
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category" value=<%= Product.category %>/>
+
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" value=<%= Product.price %>/>
+
+            <label for="cost">Cost</label>
+            <input type="number" id="cost" name="cost" value=<%= Product.cost %>/>
+
+            <label for="status">Status</label>
+            <input type="text" id="status" name="status" value=<%= Product.status %>/>
+            
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" value=<%= Product.quantity %>/>
+
+            <label for="players">Players</label>
+            <input type="text" id="players" name="players" value=<%= Product.players %>/>
+
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description" value=<%= Product.description %>/>
+
+            <label for="photos">Photos url</label>
+            <input type="text" id="photos" name="photos" value=<%= Product.photos %>/>
+
+            <label for="Maker">Maker</label>
+            <select type="text" id="Maker" name="Maker"> 
+                <% for (let i = 0; i < Makers.length; i++) { %>
+                    <option value="<%= Maker.name %>"><%= Maker.name %></option>
+                <% } %> 
+            </select>
+
+            <button type="submit">Add Author</button>
+        </form>
+    </main>
+    
+</body>
+</html>
