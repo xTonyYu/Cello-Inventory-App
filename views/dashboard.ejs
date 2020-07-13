@@ -10,13 +10,12 @@
     <header>
         <%- include('./header.ejs') %>
     </header>
-    <main>
-
-        <h1>NAME: <%= productTypes[0].name %></h1>
+    <main id="dashboard">
         <% productTypes.forEach(type => { %>
             <section class="product-type">
                 <h3><a href="/<%= type.indexPage %>"><%= type.name %></a></h3>
                 <div class="product-display">
+                    <h3><%= type.name %></h3>
                     <p>Quantity: <%= type.quantity %></p>
                     <p>Average Price: <%= type.avgPrice %></p>
                     <p>Average Cost: <%= type.avgCost %></p>
@@ -28,8 +27,9 @@
             </section>
         <% }) %>
         <section class="finances">
-            <h3>Monthly Finances</h3>
+            
             <div class="finance-display">
+                <h3>Monthly Finances</h3>
                 <p>Sales:        $1,254,672</p>
                 <p>Inventory cost: $785,624</p>
                 <p>Operation Cost: $328,356</p>
