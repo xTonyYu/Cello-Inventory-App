@@ -36,7 +36,7 @@ const dataCellos = [{
     year: 1740,
     price: 4000000,
     cost: 1500000,
-    status: 'repairs',
+    status: 'repair',
     type: 'cello',
     quantity: 1,
     players: ['David Popper'],
@@ -53,10 +53,22 @@ const dataCellos = [{
     cost: 200000,
     status: 'in stock',
     type: 'cello',
+    quantity: 1,
     players: 'Charles IX, King of France',
     description: 'The cello pictured here is called "The King," and is historically the most famous of all cellos. It was exhibited in 1968 at the Rockefeller University for the Conference on Scientific Aspects of Musical Instruments with the following information: "Violoncello by Andrea Amati, Cremona, not after 1574, body length 75.5 cm (reduced from larger dimensions). Neck and fittings modern. Painted and gilded with the arms, devices, and mottoes of Charles IX, King of France. Label probably a facsimile, dated 1572." Charles IX of France had ordered 38 instruments from Andrea Amati, including 8 "basses," and this instrument is thought to be one of them. The paintings are on the back and the sides, and there are decorations on the peg box as well (the peg box and scroll on this cello are original). On the centre of the back can be seen a crown over the remaining outline of the royal coat of arms, on either side of which is a figure. To the right is a figure of a woman and further to the right, a column, with a crown on top, and still another crown near the bottom of the instrument. On the left side, the figure is no longer visible, and only a portion of the column remains. The figures stand for Piety and Justice. The voice of this cello is remarkable. It possesses a beautiful, full-throated sound, vigorous enought to be heard in a concerto. The cello is basically the same as a modern cello, although it has been cut down. In every other respect than size, Andrea Amati made cellos as they are known today. For 200 years Andrea Amati and his descendents made these wonderful instruments.',
     photo: 'https://www.metmuseum.org/-/media/images/blogs/musical-instruments/2015/amati-cello-details/1.jpg?la=en'
-}]
+},
+{
+    name: 'W. Seifert Fine Pernambuco Cello Bow',
+    brand: 'W. Seifert',
+    price: 945,
+    cost: 250,
+    quantity: 8,
+    status: 'in stock',
+    type: 'bow',
+    photo: 'https://cdn.shopify.com/s/files/1/2966/4646/products/130c_800x.jpg?v=1538070025',
+},
+]
 
 const dataAccessories = [{
         name: 'Hightech Supreme POLYCARBONATE',
@@ -67,7 +79,6 @@ const dataAccessories = [{
         type: 'case',
         photo: 'https://cdn.shopify.com/s/files/1/2787/8120/products/sup1005xlnnfront__030181800_1737_25012018_666fc7a5-4396-4a21-9982-691414294267_1024x1024@2x.png?v=1523978518',
         forInstrument: ['cello'],
-        timeStamp
     },
     {
         name: 'Leatherwood Bespoke Cello Rosin Supple Recipe',
@@ -78,18 +89,6 @@ const dataAccessories = [{
         type: 'rosin',
         photo: 'https://cdn.shopify.com/s/files/1/2966/4646/products/Leatherwood6_85b95b1d-c505-41e0-bca9-4e5658d4eab3.JPG?v=1550255806',
         forInstrument: ['cello'],
-        timeStamp
-    },
-    {
-        name: 'W. Seifert Fine Pernambuco Cello Bow',
-        brand: 'W. Seifert',
-        price: 945,
-        cost: 250,
-        quantity: 8,
-        type: 'bow',
-        photo: 'https://cdn.shopify.com/s/files/1/2966/4646/products/130c_800x.jpg?v=1538070025',
-        forInstrument: ['cello'],
-        timeStamp
     },
     {
         name: 'GFW-MUS-0500 Lightweight Sheet Music Stand',
@@ -100,7 +99,6 @@ const dataAccessories = [{
         type: 'musicStand',
         photo: 'https://images.monoprice.com/productlargeimages/6024101.jpg',
         forInstrument: ['all'],
-        timeStamp
     }
 
 ]
@@ -147,6 +145,8 @@ const dataMakers = [
         photo: 'https://3.bp.blogspot.com/-iEvKmnttiW0/WJHu1GaLzbI/AAAAAAAANqU/RGrrAXmzuS4idlMwHRBLcl8j8Gi37uskgCK4B/w1200-h630-p-k-no-nu/Guarneri.jpg'
     }
 ]
+
+module.exports = {dataCellos, dataAccessories, dataMakers}
 
 // type: mongoose.Schema.Types.ObjectId,
 // ref: 'Maker'
