@@ -30,7 +30,10 @@ app.use('/dashboard', dashboardController)
 app.use('/:productType', function(req, res, next) {
     req.productType = req.params.productType
     // TODO below condition should based on what are in the coreproduct.type + accessories
-    if (req.productType === 'cellos' || req.productType === 'accessories') {
+    db.Product.distinct('type', (err, uniqueProdTypes) => {
+        if (err) console.log(err)
+    })
+    if (req.productType === 'products' || req.productType === 'accessories') {
         next(); 
     } else {
         res.send("Sorry, page not found")

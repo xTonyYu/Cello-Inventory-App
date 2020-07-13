@@ -1,5 +1,6 @@
 const express = require('express');
-const db = require('../models')
+const db = require('../models');
+const { Product } = require('../models');
 const router = express.Router()
 
 // ******------------ POST Route (CREATE) -----------******* //
@@ -29,17 +30,26 @@ router.post('/', (req, res) => {
 // ******------------ GET Route (READ) -----------******* //
 // Get route for product index page
 router.get('/', (req, res) => {
-    // TODO get data
-    // TODO change below to actual view
-    res.render('test', {
-        test: req.productType,
-        text: 'Get product index page',
+    const prodType = req.productType;
+    // below set the fetching of the data based on prodType
+    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
+    model.find((err, allData) => {
+        if (err) console.log(err)
+        res.render('index', {
+            prodType: req.productType,
+            products: allData,
+        });
     });
 })
 
 // get detail page
 router.get('/:id', (req, res) => {
     // TODO get data based on id
+    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
+    model.find((err, foundItem) => {
+        if (err) console.log(err)
+        
+    });
     // TODO change below to actual view
     res.render('test', {
         test: req.productType,

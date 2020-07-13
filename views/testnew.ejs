@@ -10,6 +10,7 @@
 
     </header>
     <main>
+        <h1><%= prodType %></h1>
         <form>
             <% for (let [key, value] of Object.entries(accessorySchema)) { %>
                 <% if (accessorySchema.key === 'description') return; %>
