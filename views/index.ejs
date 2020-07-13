@@ -11,8 +11,8 @@
     </header>
     <main>
         <section class="products">
-            <h2><%= product.type %></h2>
-            <div>generic product type image place holder</div>
+            <img src="" alt="" sizes="width: 100px" srcset=""><div>generic product type image placeholder</div>
+            <h2><%= prodType %></h2>
             <table class="product-table">
                 <tr class="table-heading">
                     <th class="table-column name-column">Name</th>
@@ -20,13 +20,14 @@
                     <th class="table-column qty-column">Quantity</th>
                     <th class="table-column price-column">Price</th>
                     <th class="table-column cost-column">Cost</th>
+                    <th class="table-column detail-column"></th>
                     <th class="table-column edit-column"></th>
                     <th class="table-column delete-column"></th>
                 </tr>
-                <% products.forEach(product => { %>
+                <% products.forEach(product=> { %>
                     <tr class="table-row">
-                        <td class="clickable-row" data-href="/<%= product.type %>/<%= product._id %>">
-                            <% if (product.type !== "accessories") { %>
+                        <td data-href="/<%= prodType %>/<%= product._id %>">
+                            <% if (prodType !== "accessories") { %>
                                 <%= product.maker.name %> <%= product.year %> <br>
                                 <%= product.title %>
                             <% } else { %>
@@ -38,12 +39,17 @@
                         <td><%= product.price %></td>
                         <td><%= product.cost %></td>
                         <td>
-                            <form action="/<%= product.type %>/<%= product._id %>/edit" method="GET">
+                            <form action="/<%= prodType %>/<%= product._id %>" method="GET">
+                                <button type="submit">Detail</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
                                 <button type="submit">Update</button>
                             </form>
                         </td>
                         <td>
-                            <form action="/<%= product.type %>/<%= product._id %>$_method=DELETE" method="POST">
+                            <form action="/<%= prodType %>/<%= product._id %>$_method=DELETE" method="POST">
                                 <button type="submit">Delete</button>
                             </form>
                         </td>

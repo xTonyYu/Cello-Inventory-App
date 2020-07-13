@@ -11,7 +11,7 @@ db.Product.deleteMany({},(err, deletedData) => {
     console.log('Delete all doc - resetting Product collection')
     db.Product.create(starter.dataCellos, (err, loadedData) => {
         if (err) console.log(err)
-        console.log("PRODUCT data loaded...")
+        console.log("PRODUCT data loaded")
     })
 })
 db.Accesory.deleteMany({},(err, deletedData) => {
@@ -47,6 +47,7 @@ router.get('/', (req, res) => {
                 });
                 const prodObj = {
                     name: prodType,
+                    indexPage: 'products',
                     quantity: totalQty,
                     avgPrice: totalPrice / totalQty,
                     avgCost: totalCost / totalQty,
@@ -55,7 +56,6 @@ router.get('/', (req, res) => {
                 allProdTypesAndAccs.push(prodObj)
             }
             console.log('allProdTypesAndAccs...', allProdTypesAndAccs)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-            // TODO - get accessory data
             db.Accesory.find((err, accessories) => {
                 let totalQty = 0, totalPrice = 0, totalCost = 0;
                 if (err) console.log(err)
@@ -67,7 +67,8 @@ router.get('/', (req, res) => {
                     }
                 })
                 const prodObj = {
-                    name: 'Accessories',
+                    name: 'accessories',
+                    indexPage: 'accessories',
                     quantity: totalQty,
                     avgPrice: totalPrice / totalQty,
                     avgCost: totalCost / totalQty,
@@ -80,10 +81,6 @@ router.get('/', (req, res) => {
             })
         });
     })
-    // res.render('test', {
-    //     test: 'dashboard page',
-    //     text: allProdTypesAndAccs[0]
-    // })
 })
 
 

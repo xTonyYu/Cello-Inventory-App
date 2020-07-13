@@ -1,14 +1,21 @@
 const express = require('express');
-const db = require('../models')
+const db = require('../models');
+const { Product } = require('../models');
 const router = express.Router()
 
 // ******------------ POST Route (CREATE) -----------******* //
 // get add new form page
 router.get('/new', (req, res) => {
+    const prodSchema = db.Product.schema.obj
+    const accessorySchema = db.Accesory.schema.obj
+    console.log('accessorySchema...', accessorySchema)
+    // TODO get key info for each collection and pass to ejs
+    // const makerKeys = db.Maker.schema.obj
     // TODO change below to actual view
-    res.render('test', {
-        test: req.productType,
-        text: 'Get Add new form'
+    res.render('testnew', {
+        prodType: req.productType,
+        prodSchema,
+        accessorySchema,
     });
 });
 
@@ -23,17 +30,26 @@ router.post('/', (req, res) => {
 // ******------------ GET Route (READ) -----------******* //
 // Get route for product index page
 router.get('/', (req, res) => {
-    // TODO get data
-    // TODO change below to actual view
-    res.render('index', {
-        product: Product,
-        // text: 'Get product index page',
+    const prodType = req.productType;
+    // below set the fetching of the data based on prodType
+    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
+    model.find((err, allData) => {
+        if (err) console.log(err)
+        res.render('index', {
+            prodType: req.productType,
+            products: allData,
+        });
     });
 })
 
 // get detail page
 router.get('/:id', (req, res) => {
     // TODO get data based on id
+    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
+    model.find((err, foundItem) => {
+        if (err) console.log(err)
+        
+    });
     // TODO change below to actual view
     res.render('test', {
         test: req.productType,
