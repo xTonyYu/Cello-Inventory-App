@@ -37,10 +37,10 @@ const productSchema = new mongoose.Schema({
     photo: {
         type: String,
     },
-    maker: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Maker',
-    }],
+    // maker: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Maker',
+    // }],
 }, {timestamps: true});
 
 const Product = mongoose.model('Product', productSchema);

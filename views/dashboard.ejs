@@ -14,6 +14,7 @@
     </header>
     <main id="dashboard">
         <% productTypes.forEach(type => { %>
+<<<<<<< HEAD
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h3 class="card-title"><a href="/<%= type.name %>"><%= type.name %></a></h3>
@@ -26,6 +27,12 @@
             <!-- <section class="product-type">
                 <div class="product-display">                    
                     <h3><a href="/<%= type.name %>"><%= type.name %></a></h3>
+=======
+            <section class="product-type">
+                <h3><a href="/<%= type.name %>"><%= type.name %></a></h3>
+                <div class="product-display">
+                    <h3><%= type.name %></h3>
+>>>>>>> workingbranch
                     <p>Quantity: <%= type.quantity %></p>
                     <p>Average Price: <%= type.avgPrice %></p>
                     <p>Average Cost: <%= type.avgCost %></p>

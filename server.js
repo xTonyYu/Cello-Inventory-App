@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 4000;
 // Controllers
 const prodController = require('./controllers/prodController')
 const dashboardController = require('./controllers/dashboardController')
+const makerController = require('./controllers/makerController')
 
 app.set('view engine', 'ejs');
 
@@ -26,18 +27,22 @@ app.get('/', (req, res) => {
 
 // ******------------ Rerouting -----------******* /
 app.use('/dashboard', dashboardController)
+app.use('/maker', (req, res, next) => {
+    req.productType = 'maker'
+    next();
+}, makerController)
 
 app.use('/:productType', function(req, res, next) {
     req.productType = req.params.productType
-    // TODO below condition should based on what are in the coreproduct.type + accessories
+    // below condition is based on what are in the Product.type + accessories
     db.Product.distinct('type', (err, uniqueProdTypes) => {
         if (err) console.log(err)
+        if (uniqueProdTypes.includes(req.productType) || req.productType === 'accessories') {
+            next(); 
+        } else {
+            res.send("Sorry, page not found")
+        }
     })
-    if (req.productType === 'cello' || req.productType === 'accessories') {
-        next(); 
-    } else {
-        res.send("Sorry, page not found")
-    }
 }, prodController);
 
 // ******------------ Server listening -----------******* //

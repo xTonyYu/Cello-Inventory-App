@@ -14,10 +14,17 @@
         <div>
             <h3><%= Product.maker %></h3>
             <% for (let [key, value] of Object.entries(Product)) { %>
+<<<<<<< HEAD
                 <% if (key !== ‘description’ && key !== ‘photo’ && key !== ‘_id’ && key !== ‘__v’) { %>
                     <p><%= `${key}: ${value}` %> </p>
             <% }} %> 
+=======
+                <% if (key !== 'description' && key !== 'photo' && key !== '_id' && key !== '__v') { %>
+                    <p><%= `${key}: ${value}` %> </p>
+            <% }} %>   
+>>>>>>> workingbranch
 
+            <!-- NEED TO UPDATE /PRODUCT BELOW -->
             <a href="/Product/<%= Product._id %>/edit">
                 <button>Edit</button>
             </a>
@@ -25,7 +32,7 @@
                 <button type="submit">Delete</button>
             </form>
         </div>
-        <div><img src="<%= Product.photos %>"></div>
+        <div><img src="<%= Product.photo %>"></div>
         <div>logs of events related to this product</div>
         <div><%= Product.description %></div>
     </main>
