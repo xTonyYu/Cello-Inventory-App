@@ -23,6 +23,14 @@ db.Accesory.deleteMany({},(err, deletedData) => {
         console.log("ACCESSORY data loaded")
     })
 })
+db.Maker.deleteMany({},(err, deletedData) => {
+    if (err) console.log(err)
+    console.log('Delete all doc - resetting Accessory collection')
+    db.Maker.create(starter.dataMakers, (err, loadedData) => {
+        if (err) console.log(err)
+        console.log("Maker data loaded.")
+    })
+})
 
 
 // ******------------ GET Route in /dashboard-----------******* /

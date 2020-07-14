@@ -13,8 +13,8 @@
         <div>
             <h3><%= Product.maker %></h3>
             <% for (let [key, value] of Object.entries(Product)) { %>
-                <% if (key !== 'description' || key !== 'photo' || key !== '_id') { %>
-                <p><%= `${key}: ${value}` %> </p>
+                <% if (key !== 'description' && key !== 'photo' && key !== '_id' && key !== '__v') { %>
+                    <p><%= `${key}: ${value}` %> </p>
             <% }} %>   
 
             <a href="/Product/<%= Product._id %>/edit">

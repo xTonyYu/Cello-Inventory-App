@@ -9,15 +9,18 @@ const router = express.Router()
 router.get('/new', (req, res) => {
     const prodSchema = db.Product.schema.obj
     const accessorySchema = db.Accesory.schema.obj
-    console.log('accessorySchema...', accessorySchema)
-    // TODO get key info for each collection and pass to ejs
-    // const makerKeys = db.Maker.schema.obj
-    // TODO change below to actual view
-    res.render('testnew', {
-        prodType: req.productType,
-        prodSchema,
-        accessorySchema,
-    });
+    console.log('accessorySchema...', accessorySchema)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    const makerSchema = db.Maker.schema.obj
+    db.Maker.find((err, makers) => {
+        if (err) console.log(err)
+        res.render('new', {
+            prodType: req.productType,
+            prodSchema,
+            accessorySchema,
+            makerSchema,
+            makers,
+        });
+    })
 });
 
 // create data

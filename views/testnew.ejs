@@ -12,9 +12,9 @@
     <main>
         <h1><%= prodType %></h1>
         <form>
-            <% for (let [key, value] of Object.entries(accessorySchema)) { %>
-                <% if (accessorySchema.key === 'description') return; %>
-                <%= `${key}: ` %><input type="text" name="<%= `${key}` %>"><br>
+            <% for (let [key] of Object.entries(accessorySchema)) { %>
+                <label for="<%= `${key}` %>"><%= `${key}: ` %></label>
+                <input type="text" name="<%= `${key}` %>" id="<%= `${key}` %>"><br>
             <% } %>  
         </form>
         <div>
