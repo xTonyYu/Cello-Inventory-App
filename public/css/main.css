@@ -19,10 +19,19 @@ nav {
 
 
 body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0;
     background-color: cadetblue;
 }
 
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80vw;
+}
 
 /* Dashboard */
 
@@ -65,4 +74,17 @@ body {
     height: 100%;
     border: 1px solid;
     width: 10vw;
+}
+form {
+    display: flex;
+    justify-content: center;
+}
+.form-group {
+    width: 80vw;
+    display: block;
+    justify-content: center;
+}
+
+.form-control {
+    width: 100%;
 }

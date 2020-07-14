@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/main.css">
     <title>Show Page</title>
 </head>
@@ -11,26 +13,22 @@
         <%- include('./header.ejs') %> 
     </header>
     <main>
-        <div>
-            <h3><%= Product.maker %></h3>
+        <div class="card" style="width: 25%;">
+            <h3 class="card-body" style="display: flex; flex-wrap: wrap;"><%= Product.maker %></h3>
             <% for (let [key, value] of Object.entries(Product)) { %>
-<<<<<<< HEAD
-                <% if (key !== ‘description’ && key !== ‘photo’ && key !== ‘_id’ && key !== ‘__v’) { %>
-                    <p><%= `${key}: ${value}` %> </p>
-            <% }} %> 
-=======
-                <% if (key !== 'description' && key !== 'photo' && key !== '_id' && key !== '__v') { %>
-                    <p><%= `${key}: ${value}` %> </p>
+                <% if (key !== 'description' && key !== 'photo' && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') { %>
+                    <p  class="card-body" style="height: 20px; padding: 0%; margin: 3px;"><%= `${key}: ${value}` %> </p>
             <% }} %>   
->>>>>>> workingbranch
 
             <!-- NEED TO UPDATE /PRODUCT BELOW -->
-            <a href="/Product/<%= Product._id %>/edit">
-                <button>Edit</button>
-            </a>
-            <form action="/product/<%= Product._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
-            </form>
+            <div class="btn-group" role="group" style="display: flex; justify-content: flex-end;">
+                <a href="/Product/<%= Product._id %>/edit">
+                    <button type="button" class="btn btn-secondary">Edit</button>
+                </a>
+                <form action="/product/<%= Product._id %>?_method=DELETE" method="POST">
+                    <button type="submit" type="button" class="btn btn-secondary" style="background-color: rgba(150, 7, 7, 0.925);">Delete</button>
+                </form>
+            </div>
         </div>
         <div><img src="<%= Product.photo %>"></div>
         <div>logs of events related to this product</div>
