@@ -32,7 +32,9 @@ main {
     justify-content: center;
     width: 80vw;
 }
-
+.delete-btn {
+    background-color: rgba(117, 5, 5, 0.925);
+}
 /* Dashboard */
 
 #dashboard {
@@ -68,13 +70,38 @@ main {
 .products div {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+.table-row {
+    width: 80vw;
+    height: 50px;
+    display: inline-block;
+}
+.table-cell {
+    height: 100%;
+    padding: 3px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.row-name {
+    width: 20%;
+}
+.row-status {
+    margin: 0;
+    width: 7%;
+}
+.row-quantity {
+    width: 2%;
+}
+.row-price {
+    width: 10%;
+}
+.row-cost {
+    width: 10%;
 }
 
-.indexColumn {
-    height: 100%;
-    border: 1px solid;
-    width: 10vw;
-}
+/* forms */
 form {
     display: flex;
     justify-content: center;

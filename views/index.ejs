@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="../css/main.css">
+    
     <title>Product Index</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         <section class="products">
             <img src="" alt="" sizes="width: 100px" srcset=""><div>generic product type image placeholder</div>
             <div><h2><%= prodType %></h2></div>
-            <table class="product-table">
+            <!-- <table class="product-table">
                 <tr class="table-heading">
                     <th class="table-column name-column">Name</th>
                     <th class="table-column status-column">Status</th>
@@ -26,37 +26,33 @@
                     <th class="table-column detail-column"></th>
                     <th class="table-column edit-column"></th>
                     <th class="table-column delete-column"></th>
-                </tr>
+                </tr> -->
                 <% products.forEach(product=> { %>
-                    <tr class="table-row">
-                        <td data-href="/<%= prodType %>/<%= product._id %>">
+                    <div class="table-row">
+                        <div class="table-cell row-name" data-href="/<%= prodType %>/<%= product._id %>">
                             <% if (prodType !== "accessories") { %>
                                 <%= product.year %> <%= product.year %> <br>
                                 <%= product.title %>
                             <% } else { %>
                                 <%= product.name %>
                             <% } %>
-                        </td>
-                        <td><%= product.status %></td>
-                        <td><%= product.quantity %></td>
-                        <td><%= product.price %></td>
-                        <td><%= product.cost %></td>
-                        <td>
-                            <a href="/<%= prodType %>/<%= product._id %>">
-                                <button type="submit">Detail</button>
-                            </a>
-                        </td>
-                        <td>
+                            </div>
+                        <div class="table-cell row-status"><p style="align-self: center;"><%= product.status %></p></div>
+                        <div class="table-cell row-quantity"><%= product.quantity %></div>
+                        <div class="table-cell row-price"><%= product.price %></div>
+                        <div class="table-cell row-cost"><%= product.cost %></div>
+                        <div class="table-cell btn-group row-action" role="group" aria-label="Basic example">
+                            <form href="/<%= prodType %>/<%= product._id %>">
+                                <button type="submit" type="button" class="btn btn-secondary">Detail</button>
+                            </form>
                             <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
-                                <button type="submit">Update</button>
+                                <button type="submit" type="button" class="btn btn-secondary">Update</button>
                             </form>
-                        </td>
-                        <td>
                             <form action="/<%= prodType %>/<%= product._id %>?_method=DELETE" method="POST">
-                                <button type="submit">Delete</button>
+                                <button type="submit" type="button" class="btn btn-secondary delete-btn">Delete</button>
                             </form>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 <% }) %>
             <!-- </table> -->
         </section>
