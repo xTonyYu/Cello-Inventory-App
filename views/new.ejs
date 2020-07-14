@@ -18,7 +18,7 @@
                 <br>
             <% } %>
             <form action="/<%= prodType %>?_priorProdType=<%= priorProdType %>" method="POST">
-                <% if (prodType !== 'accessories' && prodType !== 'maker') { %>    
+                <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
                     <label for="Maker">Maker</label>
                     <select type="text" id="maker" name="makerId"> 
                         <% for (let i = 0; i < makers.length; i++) { %>

@@ -23,17 +23,22 @@ router.get('/new', (req, res) => {
 // create data
 router.post('/', (req, res) => {
     const prodType = req.productType;
-    // TODO update corresponding collections based on req.productType
+    //  update corresponding collections based on req.productType
     // below set the model to post data
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
-    model.create(req.body, (err, createdData) => {
+    model.create(req.body, (err, newData) => {
         if (err) console.log(err)
-        // only maker need to also link to product
-        // if (prodType)
+        // only product need to also link to maker
+        if (prodType !== 'accessories' && req.body.type !== 'bow') {
+            db.Maker.findById(req.body.makerId, (err, foundMaker)=> {
+                foundMaker.products.push(newData)
+                foundMaker.save((err, savedMaker) => {
+                res.redirect('/' + req.productType);
+                })
+            })
+        }
     })
 
-    console.log('create done!')
-    res.redirect('/' + req.productType);
 });
 
 

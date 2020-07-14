@@ -24,6 +24,8 @@ router.post('/', (req, res) => {
 
 
 // ******------------ GET Route (READ) -----------******* //
-
+router.get('/', (req, res) => {
+    res.redirect('/dashboard');
+});
 
 module.exports = router;
