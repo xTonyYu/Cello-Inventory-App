@@ -3,6 +3,7 @@ const db = require('../models');
 
 const router = express.Router()
 
+
 // ******------------ POST Route (CREATE) -----------******* //
 // get add new form page
 router.get('/new', (req, res) => {
@@ -36,6 +37,8 @@ router.post('/', (req, res) => {
                 res.redirect('/' + req.productType);
                 })
             })
+        } else {
+            res.redirect('/' + req.productType);
         }
     })
 });
@@ -77,13 +80,18 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const prodType = req.productType;
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
-    model.findById(req.params.id, (err, foundProduct) => {
+    // TODO get Maker info
+    db.Maker.find((err, makers) => {  // in case the form needs to display Maker info
         if (err) console.log(err)
-        res.render('show', {
-            prodType,
-            Product: foundProduct._doc,
+        model.findById(req.params.id, (err, foundProduct) => {
+            if (err) console.log(err)
+            res.render('show', {
+                prodType,
+                Product: foundProduct._doc,
+                makers,
+            })
         });
-    });
+    })
 });
 
 
@@ -93,38 +101,56 @@ router.get('/:id/edit', (req, res) => {
     const prodType = req.productType;
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
     const schema = prodType !== 'accessories' ? db.Product.schema.obj : db.Accesory.schema.obj;
+    console.log('get EDIT page route!')  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<
     db.Maker.find((err, makers) => {  // in case the form needs to display Maker info
         if (err) console.log(err)
         model.findById(req.params.id, (err, foundProduct) => {
             if (err) console.log(err)
-            res.render('edit2', {
+            res.render('edit', {
                 prodType,
                 schema,
                 makers,
                 priorProdType: '',
                 Product: foundProduct._doc,
-            });
+            })
         });
     })
-})
+});
 
 // update any product or maker
 router.put('/:id', (req, res) => {
-    // TODO update data based on req.productType
+    // update data based on req.productType
     const prodType = req.productType;
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
+    console.log('PUT route!')  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<
     model.findByIdAndUpdate(
         req.params.id,
         req.body,
         {new: true},
         (err, foundData) => {
             if (err) console.log(err)
-
+            // if the update is not for accessories or bow then update Maker else redirect
+            if (prodType !== 'accessories' && prodType !== 'bow') {
+                db.Maker.findOne({'products': req.params.id}, (err, foundMaker) => {
+                    if (foundMaker._id.toString() !== req.body.makerId) {
+                        foundMaker.products.remove(req.params.id);
+                        foundMaker.save((err, savedFoundMaker) => {
+                            db.Maker.findById(req.params.id, (err, newMaker) => {
+                                newMaker.products.push(foundData);
+                                newMaker.save((err, updatedMaker) => {
+                                    res.redirect('/'+ prodType);
+                                })
+                            })
+                        })
+                    } else {
+                        res.redirect('/'+ prodType);
+                    }
+                })
+            } else {
+                res.redirect('/'+ prodType);
+            }
         }
     )
-
-    console.log("update success!")
-    res.redirect('/'+ req.productType);
 });
 
 
