@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Show Page</title>
 </head>
 <body>
@@ -12,15 +13,15 @@
     <main>
         <div>
             <h3><%= Product.maker %></h3>
-            <%= for (let [key, value] of Object.entries(Product)) { %>
-                <% if (Product.key === 'description') return; %>
-                <p><%= `${key}: ${value}` %> </p>
-            <%= } %>   
+            <% for (let [key, value] of Object.entries(Product)) { %>
+                <% if (key !== ‘description’ && key !== ‘photo’ && key !== ‘_id’ && key !== ‘__v’) { %>
+                    <p><%= `${key}: ${value}` %> </p>
+            <% }} %> 
 
             <a href="/Product/<%= Product._id %>/edit">
                 <button>Edit</button>
             </a>
-            <form action="/product/<%= product._id %>?_method=DELETE" method="POST">
+            <form action="/product/<%= Product._id %>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
             </form>
         </div>

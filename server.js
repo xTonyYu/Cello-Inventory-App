@@ -33,7 +33,7 @@ app.use('/:productType', function(req, res, next) {
     db.Product.distinct('type', (err, uniqueProdTypes) => {
         if (err) console.log(err)
     })
-    if (req.productType === 'products' || req.productType === 'accessories') {
+    if (req.productType === 'cello' || req.productType === 'accessories') {
         next(); 
     } else {
         res.send("Sorry, page not found")

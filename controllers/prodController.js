@@ -47,13 +47,12 @@ router.get('/:id', (req, res) => {
     // TODO get data based on id
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
     model.find((err, foundItem) => {
-        if (err) console.log(err)
-        
+        if (err) console.log(err)    
     });
     // TODO change below to actual view
-    res.render('test', {
-        test: req.productType,
-        text: 'Get datial page for ID: ' + req.params.id,
+    res.render('show', {
+        prodType: req.productType,
+        // text: 'Get datial page for ID: ' + req.params.id,
     });    
 });
 

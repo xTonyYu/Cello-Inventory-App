@@ -1,25 +1,30 @@
 * {
     box-sizing: border-box;
 }
+
+/* header */
 .logo {
     display: flex;
     justify-content: center;
     width: 100vw;
 }
-body {
-    margin: 0;
-    background-color: cadetblue;
-}
-
 nav {
     display: flex;
     justify-content: center;
     width: 100vw;
 }
-
 .navbutt {
     border: 1px solid black;
 }
+
+
+body {
+    margin: 0;
+    background-color: cadetblue;
+}
+
+
+/* Dashboard */
 
 #dashboard {
     display: flex;
@@ -38,5 +43,20 @@ nav {
     display: flex;
     width: 40%;
     justify-content: center;
+}
 
+/* index */
+.products {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+.product-table {
+    justify-content: center;
+    display: flex;
+}
+
+.products div {
+    display: flex;
+    justify-content: center;
 }
