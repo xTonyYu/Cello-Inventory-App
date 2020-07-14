@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Show Page</title>
 </head>
 <body>
@@ -18,6 +20,7 @@
                 <br>
             <% } %>
             <form action="/<%= prodType %>?_priorProdType=<%= priorProdType %>" method="POST">
+                <div class="form-group">
                 <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
                     <label for="Maker">Maker</label>
                     <select type="text" id="maker" name="makerId"> 
@@ -30,7 +33,7 @@
                 <% for (let [key] of Object.entries(schema)) { %>
                     <% if (key !== 'products' && key !== 'bio') { %>
                         <label for="<%= `${key}` %>"><%= `${key}: ` %></label>
-                        <input type="text" name="<%= `${key}` %>" id="<%= `${key}` %>">
+                        <input type="text" class="form-control" name="<%= `${key}` %>" id="<%= `${key}` %>">
                         <br>
                     <% } else if (key === 'bio') { %>
                         <label for="<%= `${key}` %>"><%= `${key}: ` %></label>
@@ -40,6 +43,7 @@
                 <% } %>  
             
                 <button type="submit">Add</button>
+            </div>
             </form>
         </div>
     </main>
