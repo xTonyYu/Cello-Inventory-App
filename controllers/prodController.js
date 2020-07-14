@@ -39,7 +39,6 @@ router.get('/', (req, res) => {
         let dataResult = [];
         if (prodType !== 'accessories') {
             allData.forEach(item => {
-                console.log(item.type)
                 if (item.type === prodType) {
                     dataResult.push(item)
                 }
@@ -48,25 +47,23 @@ router.get('/', (req, res) => {
             dataResult = allData;
         }
         res.render('index', {
-            prodType: req.productType,
+            prodType,
             products: dataResult,
         });
     });
 })
 
-// get detail page
+// get detail SHOW page
 router.get('/:id', (req, res) => {
-    // TODO get data based on id
+    const prodType = req.productType;
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
-    model.find((err, foundItem) => {
+    model.findById(req.params.id, (err, foundProduct) => {
         if (err) console.log(err)
-        
+        res.render('show', {
+            prodType,
+            Product: foundProduct._doc,
+        });
     });
-    // TODO change below to actual view
-    res.render('test', {
-        test: req.productType,
-        text: 'Get datial page for ID: ' + req.params.id,
-    });    
 });
 
 

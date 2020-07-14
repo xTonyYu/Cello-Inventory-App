@@ -39,9 +39,9 @@
                         <td><%= product.price %></td>
                         <td><%= product.cost %></td>
                         <td>
-                            <form action="/<%= prodType %>/<%= product._id %>" method="GET">
+                            <a href="/<%= prodType %>/<%= product._id %>">
                                 <button type="submit">Detail</button>
-                            </form>
+                            </a>
                         </td>
                         <td>
                             <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">

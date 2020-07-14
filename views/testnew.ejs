@@ -14,7 +14,7 @@
         <form>
             <% for (let [key, value] of Object.entries(accessorySchema)) { %>
                 <% if (accessorySchema.key === 'description') return; %>
-                <%= `${key}: ` %><input type="text" name="<%= `${key}` %>" id=""><br>
+                <%= `${key}: ` %><input type="text" name="<%= `${key}` %>"><br>
             <% } %>  
         </form>
         <div>

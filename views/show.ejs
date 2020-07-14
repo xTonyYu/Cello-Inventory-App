@@ -12,19 +12,19 @@
     <main>
         <div>
             <h3><%= Product.maker %></h3>
-            <%= for (let [key, value] of Object.entries(Product)) { %>
-                <% if (Product.key === 'description') return; %>
+            <% for (let [key, value] of Object.entries(Product)) { %>
+                <% if (key !== 'description' || key !== 'photo' || key !== '_id') { %>
                 <p><%= `${key}: ${value}` %> </p>
-            <%= } %>   
+            <% }} %>   
 
             <a href="/Product/<%= Product._id %>/edit">
                 <button>Edit</button>
             </a>
-            <form action="/product/<%= product._id %>?_method=DELETE" method="POST">
+            <form action="/product/<%= Product._id %>?_method=DELETE" method="POST">
                 <button type="submit">Delete</button>
             </form>
         </div>
-        <div><img src="<%= Product.photos %>"></div>
+        <div><img src="<%= Product.photo %>"></div>
         <div>logs of events related to this product</div>
         <div><%= Product.description %></div>
     </main>
