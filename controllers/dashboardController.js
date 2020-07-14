@@ -41,7 +41,6 @@ router.get('/', (req, res) => {
         // find unique product types and group/display them separately
         db.Product.distinct('type', (err, uniqueProdTypes) => {
             if (err) console.log(err)
-            console.log('uniqueProdTypes...', uniqueProdTypes)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
             // calculate summarized stats by each prod type 
             for (let index = 0; index < uniqueProdTypes.length; index++) {
                 const prodType = uniqueProdTypes[index];
@@ -63,7 +62,6 @@ router.get('/', (req, res) => {
                 }
                 allProdTypesAndAccs.push(prodObj)
             }
-            console.log('allProdTypesAndAccs...', allProdTypesAndAccs)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
             db.Accesory.find((err, accessories) => {
                 let totalQty = 0, totalPrice = 0, totalCost = 0;
                 if (err) console.log(err)
