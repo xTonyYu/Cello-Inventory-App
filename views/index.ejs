@@ -16,7 +16,7 @@
         <section class="products">
             <img src="" alt="" sizes="width: 100px" srcset=""><div>generic product type image placeholder</div>
             <div><h2><%= prodType %></h2></div>
-            <table class="product-table">
+            <!-- <table class="product-table">
                 <tr class="table-heading">
                     <th class="table-column name-column">Name</th>
                     <th class="table-column status-column">Status</th>
@@ -26,39 +26,41 @@
                     <th class="table-column detail-column"></th>
                     <th class="table-column edit-column"></th>
                     <th class="table-column delete-column"></th>
-                </tr>
+                </tr> -->
                 <% products.forEach(product=> { %>
-                    <tr class="table-row">
-                        <td data-href="/<%= prodType %>/<%= product._id %>">
-                            <% if (prodType !== "accessories") { %>
-                                <%= product.maker.name %> <%= product.year %> <br>
-                                <%= product.title %>
-                            <% } else { %>
-                                <%= product.name %>
-                            <% } %>
-                        </td>
-                        <td><%= product.status %></td>
-                        <td><%= product.quantity %></td>
-                        <td><%= product.price %></td>
-                        <td><%= product.cost %></td>
-                        <td>
-                            <form action="/<%= prodType %>/<%= product._id %>" method="GET">
-                                <button type="submit">Detail</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
-                                <button type="submit">Update</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/<%= prodType %>/<%= product._id %>$_method=DELETE" method="POST">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
+                    <div class="card">
+                        <div class="card-body d-flex flex-wrap" style="padding: 0px; height: 50px; display: flex;" data-href="/<%= prodType %>/<%= product._id %>">
+                            <div class="indexColumn">
+                                <% if (prodType !== "accessories") { %>
+                                    <%= product.maker.name %> <%= product.year %> 
+                                    <%= product.title %>
+                                <% } else { %>
+                                    <%= product.name %>
+                                <% } %>
+                            </div>
+                            <div class="indexColumn"><%= product.status %></div>
+                            <div class="indexColumn"><%= product.quantity %></div>
+                            <div class="indexColumn"><%= product.price %></div>
+                            <div class="indexColumn"><%= product.cost %></div>
+                            <div class="indexColumn">
+                                <form action="/<%= prodType %>/<%= product._id %>" method="GET">
+                                    <button type="submit">Detail</button>
+                                </form>
+                            </div>
+                            <div class="indexColumn">
+                                <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
+                                    <button type="submit">Update</button>
+                                </form>
+                            </div>
+                            <div class="indexColumn"> 
+                                <form action="/<%= prodType %>/<%= product._id %>$_method=DELETE" method="POST">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 <% }) %>
-            </table>
+            <!-- </table> -->
         </section>
     </main>
 </body>

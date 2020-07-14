@@ -60,3 +60,9 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.indexColumn {
+    height: 100%;
+    border: 1px solid;
+    width: 10vw;
+}
