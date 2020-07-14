@@ -28,7 +28,7 @@
                     <tr class="table-row">
                         <td data-href="/<%= prodType %>/<%= product._id %>">
                             <% if (prodType !== "accessories") { %>
-                                <%= product.maker.name %> <%= product.year %> <br>
+                                <%= product.year %> <%= product.year %> <br>
                                 <%= product.title %>
                             <% } else { %>
                                 <%= product.name %>
@@ -49,7 +49,7 @@
                             </form>
                         </td>
                         <td>
-                            <form action="/<%= prodType %>/<%= product._id %>$_method=DELETE" method="POST">
+                            <form action="/<%= prodType %>/<%= product._id %>?_method=DELETE" method="POST">
                                 <button type="submit">Delete</button>
                             </form>
                         </td>

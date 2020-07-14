@@ -53,13 +53,20 @@ router.get('/', (req, res) => {
         let dataResult = [];
         if (prodType !== 'accessories') {
             allData.forEach(item => {
-                if (item.type === prodType) {
-                    dataResult.push(item)
-                }
+                // TODO below still need to tested once makers are linked with products
+                // console.log(item._id)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                // db.Maker.findOne({'products': item._id}, (err, foundMaker) => {
+                //     if (err) console.log(err)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                //     item.maker = foundMaker;
+                    if (item.type === prodType) {
+                        dataResult.push(item)
+                    }
+                // })
             })
         } else {
             dataResult = allData;
         }
+        // console.log(dataResult)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         res.render('index', {
             prodType,
             products: dataResult,
@@ -102,9 +109,25 @@ router.put('/:id', (req, res) => {
 
 // ******------------ DELETE Route (DELETE) -----------******* //
 router.delete('/:id', (req, res) => {
-    // TODO delete data based on id and req.productType
-    console.log('delete done')
-    res.redirect('/' + req.productType);
+    // delete data based on id and req.productType
+    const prodType = req.productType;
+    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
+    model.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
+        if (err) console.log(err)
+        // need to test below when Maker had linked products
+        // if (prodType !== 'accessories' && prodType !== 'bow') {
+        //     db.Maker.findOne({'products': req.params.id}, (err, foundMaker) => {
+        //         console.log(foundMaker)
+        //         foundMaker.products.remove(req.params.id);
+        //         foundMaker.save((err, updatedMaker) => {
+        //             res.redirect('/' + req.productType);
+        //         })
+        //     })
+        // } else {
+            res.redirect('/' + req.productType);
+        // }
+        console.log('deleted...', deletedProduct)
+    });
 });
 
 
