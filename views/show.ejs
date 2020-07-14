@@ -22,10 +22,10 @@
 
             <!-- NEED TO UPDATE /PRODUCT BELOW -->
             <div class="btn-group" role="group" style="display: flex; justify-content: flex-end;">
-                <a href="/Product/<%= Product._id %>/edit">
+                <a href="/<%= prodType %>/<%= Product._id %>/edit">
                     <button type="button" class="btn btn-secondary">Edit</button>
                 </a>
-                <form action="/product/<%= Product._id %>?_method=DELETE" method="POST">
+                <form action="/<%= prodType %>/<%= Product._id %>?_method=DELETE" method="POST">
                     <button type="submit" type="button" class="btn btn-secondary" style="background-color: rgba(150, 7, 7, 0.925);">Delete</button>
                 </form>
             </div>

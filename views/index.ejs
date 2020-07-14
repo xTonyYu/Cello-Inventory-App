@@ -42,7 +42,7 @@
                         <div class="table-cell row-price"><%= product.price %></div>
                         <div class="table-cell row-cost"><%= product.cost %></div>
                         <div class="table-cell btn-group row-action" role="group" aria-label="Basic example">
-                            <form href="/<%= prodType %>/<%= product._id %>">
+                            <form action="/<%= prodType %>/<%= product._id %>" method="GET">
                                 <button type="submit" type="button" class="btn btn-secondary">Detail</button>
                             </form>
                             <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
