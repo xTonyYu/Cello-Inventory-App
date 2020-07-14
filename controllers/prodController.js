@@ -7,25 +7,31 @@ const router = express.Router()
 // ******------------ POST Route (CREATE) -----------******* //
 // get add new form page
 router.get('/new', (req, res) => {
-    const prodSchema = db.Product.schema.obj
-    const accessorySchema = db.Accesory.schema.obj
-    console.log('accessorySchema...', accessorySchema)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    const makerSchema = db.Maker.schema.obj
+    const prodType = req.productType;
+    const schema = prodType !== 'accessories' ? db.Product.schema.obj : db.Accesory.schema.obj;
     db.Maker.find((err, makers) => {
         if (err) console.log(err)
         res.render('new', {
-            prodType: req.productType,
-            prodSchema,
-            accessorySchema,
-            makerSchema,
+            prodType,
+            schema,
             makers,
+            priorProdType: '',
         });
     })
 });
 
 // create data
 router.post('/', (req, res) => {
+    const prodType = req.productType;
     // TODO update corresponding collections based on req.productType
+    // below set the model to post data
+    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
+    model.create(req.body, (err, createdData) => {
+        if (err) console.log(err)
+        // only maker need to also link to product
+        // if (prodType)
+    })
+
     console.log('create done!')
     res.redirect('/' + req.productType);
 });
