@@ -15,7 +15,7 @@
         <div>
             <h2><%= prodType %></h2>
             <h3><%= priorProdType %></h3>
-            <% if (prodType !== 'accessories' && prodType !== 'maker') { %>    
+            <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
                 <a href="/maker/new?_priorProdType=<%= prodType %>"><button type="submit">Add New Maker</button></a>
                 <br>
             <% } %>
