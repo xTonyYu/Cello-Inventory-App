@@ -1,8 +1,31 @@
 * {
     box-sizing: border-box;
 }
+body {
+    background-image: url("https://thumbs.dreamstime.com/b/old-cello-wood-texture-wooden-dusty-scratched-surface-119888517.jpg");
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    /* background-color: cadetblue; */
+}
+
+main {
+    /* background-color: darkgrey; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80vw;
+    height: 100%;
+}
+.delete-btn {
+    background-color: rgba(117, 5, 5, 0.925);
+}
 
 /* header */
+.carousel-item {
+    height: 200px;
+}
 .logo {
     display: flex;
     justify-content: center;
@@ -20,23 +43,6 @@
 
 div .container {
     margin: 0 0 0 0;
-}
-body {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0;
-    background-color: cadetblue;
-}
-
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80vw;
-}
-.delete-btn {
-    background-color: rgba(117, 5, 5, 0.925);
 }
 /* Dashboard */
 
@@ -95,31 +101,40 @@ footer {
 }
 .table-row {
     width: 80vw;
-    height: 50px;
-    display: inline-block;
+    /* height: 50px; */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
 }
 .table-cell {
     height: 100%;
     padding: 3px;
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
 }
 .row-name {
     width: 20%;
+    min-width: 200px;
 }
 .row-status {
     margin: 0;
     width: 7%;
+    min-width: 80px;
 }
 .row-quantity {
+    margin: 0;
     width: 2%;
+    min-width: 50px;
 }
 .row-price {
     width: 10%;
+    min-width: 120px;
 }
 .row-cost {
     width: 10%;
+    min-width: 120px;
 }
 
 /* forms */
