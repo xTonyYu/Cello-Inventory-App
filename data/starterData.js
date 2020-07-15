@@ -76,6 +76,15 @@ const dataCellos = [{
     quantity: 3,
     photo: 'https://elcoda.com/images/super/hofner-electric-violin-as-160e-v-1.jpg',
 },
+{
+    title: 'Test Cello',
+    price: 200,
+    cost: 50,
+    status: 'in stock',
+    type: 'cello',
+    quantity: 3,
+    photo: 'https://www.metmuseum.org/-/media/images/blogs/musical-instruments/2015/amati-cello-details/1.jpg?la=en',
+},
 ]
 
 const dataAccessories = [{
