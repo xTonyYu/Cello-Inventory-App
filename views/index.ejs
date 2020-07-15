@@ -5,56 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/index.css">
     <% const currencyStyle = { style: 'currency', currency: 'USD' } %>
     
     <title><%= prodType %> Index</title>
 </head>
-<body>
+<body style="background-image: url('/images/cello1.jpg');">
     <header>
         <%- include('./header.ejs') %>
     </header>
     <main>
         <section class="products">
             <img src="" alt="" sizes="width: 100px" srcset=""><div>generic product type image placeholder</div>
-            <div><h2><%= prodType %></h2></div>
-                    <div class="table-row">
-                        <div class="table-cell row-name">Name</div>
-                        <div class="table-cell row-status">Status</div>
-                        <div class="table-cell row-quantity">Quantity</div>
-                        <div class="table-cell row-price">Price</div>
-                        <div class="table-cell row-cost">Cost</div>
-                        <div class="table-cell row-action">Detail</div>
-                        <div class="table-cell row-action">Update</div>
-                        <div class="table-cell row-action">Delete</div>
-                    </div>
-                <% products.forEach(product=> { %>
-                    <div class="table-row">
-                        <div class="table-cell row-name" data-href="/<%= prodType %>/<%= product._id %>">
-                            <% if (prodType !== "accessories") { %>
-                                <%= product.maker.name %> <%= product.year %> <br>
-                                <%= product.title %>
-                            <% } else { %>
-                                <%= product.name %>
-                            <% } %>
-                            </div>
-                        <div class="table-cell row-status" style="align-self: center;"><%= product.status %></div>
-                        <div class="table-cell row-quantity"><%= Intl.NumberFormat('en-US').format(product.quantity) %></div>
-                        <div class="table-cell row-price"><%= Intl.NumberFormat('en-US', currencyStyle).format(product.price) %></div>
-                        <div class="table-cell row-cost"><%= Intl.NumberFormat('en-US', currencyStyle).format(product.cost) %></div>
-                        <div class="table-cell btn-group row-action" role="group" aria-label="Basic example">
-                            <form action="/<%= prodType %>/<%= product._id %>" method="GET">
-                                <button type="submit" type="button" class="btn btn-secondary">Detail</button>
-                            </form>
-                            <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
-                                <button type="submit" type="button" class="btn btn-secondary">Update</button>
-                            </form>
-                            <form action="/<%= prodType %>/<%= product._id %>?_method=DELETE" method="POST">
-                                <button type="submit" type="button" class="btn btn-secondary delete-btn">Delete</button>
-                            </form>
+            <div class="title">
+                <h2><%= prodType %></h2>
+                <a href="/<%= prodType %>/new">
+                    <button type="button" class="btn btn-secondary">Add new</button>
+                </a>
+            </div>
+            <% products.forEach(product=> { %>
+                <div class="table-row">
+                    <div class="table-cell row-name" data-href="/<%= prodType %>/<%= product._id %>">
+                        <% if (prodType !== "accessories") { %>
+                            <%= product.maker.name %> <%= product.year %> <br>
+                            <%= product.title %>
+                        <% } else { %>
+                            <%= product.name %>
+                        <% } %>
                         </div>
+                    <div class="table-cell row-status"><%= product.status %></div>
+                    <div class="table-cell row-quantity">Qty: <%= Intl.NumberFormat('en-US').format(product.quantity) %></div>
+                    <div class="tabl-cell row-price-cost">
+                        <div class="table-cell row-price">Price: <br><%= Intl.NumberFormat('en-US', currencyStyle).format(product.price) %></div>
+                        <div class="table-cell row-cost">Cost: <br><%= Intl.NumberFormat('en-US', currencyStyle).format(product.cost) %></div>
                     </div>
-                <% }) %>
-            <!-- </table> -->
+                    <div class="table-cell btn-group row-action" role="group" aria-label="Basic example">
+                        <form action="/<%= prodType %>/<%= product._id %>" method="GET">
+                            <button type="submit" type="button" class="btn btn-secondary">Detail</button>
+                        </form>
+                        <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
+                            <button type="submit" type="button" class="btn btn-secondary">Update</button>
+                        </form>
+                        <form action="/<%= prodType %>/<%= product._id %>?_method=DELETE" method="POST">
+                            <button type="submit" type="button" class="btn btn-secondary delete-btn">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
         </section>
     </main>
 </body>

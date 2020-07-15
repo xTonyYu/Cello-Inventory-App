@@ -84,7 +84,7 @@ footer {
 }
 
 /* index */
-.products {
+/* .products {
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -100,12 +100,11 @@ footer {
     flex-wrap: wrap;
 }
 .table-row {
-    width: 80vw;
-    /* height: 50px; */
+    width: 70vw;
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
+    justify-content: space-between;
+    border: solid 1px steelblue;
 }
 .table-cell {
     height: 100%;
@@ -115,7 +114,7 @@ footer {
     justify-content: center;
 }
 .row-name {
-    width: 20%;
+    width: 30%;
     min-width: 200px;
 }
 .row-status {
@@ -124,8 +123,7 @@ footer {
     min-width: 80px;
 }
 .row-quantity {
-    margin: 0;
-    width: 2%;
+    width: 3%;
     min-width: 50px;
 }
 .row-price {
@@ -135,7 +133,8 @@ footer {
 .row-cost {
     width: 10%;
     min-width: 120px;
-}
+} */
+
 
 /* forms */
 form {
