@@ -5,7 +5,7 @@ const db = require('./models')
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-const minimumProdTypes = ['cello', 'bow', 'accessories']
+const minimumProdTypes = ['cello', 'violin', 'bow', 'accessories']
 
 // Controllers
 const prodController = require('./controllers/prodController')

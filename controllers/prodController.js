@@ -45,8 +45,7 @@ router.post('/', (req, res) => {
 
 
 // ******------------ GET Route (READ) -----------******* //
-// Get route for product index page
-router.get('/', (req, res) => {
+const fetchingIndexData = (req, res, next) => {
     const prodType = req.productType;
     // below set the fetching of the data based on prodType
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
@@ -54,25 +53,35 @@ router.get('/', (req, res) => {
         if (err) console.log(err)
         let dataResult = [];
         if (prodType !== 'accessories') {
-            allData.forEach(item => {
-                // TODO below still need to be tested once makers are linked with products
-                // console.log(item._id)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                // db.Maker.findOne({'products': item._id}, (err, foundMaker) => {
-                //     if (err) console.log(err)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-                //     item.maker = foundMaker;
+            db.Maker.find((err, makers) => {
+                allData.forEach(item => {
+                    makers.forEach(maker => {
+                        if (maker.products.includes(item._id)) {
+                            item.maker = maker
+                        // } else {
+                        //     item.maker = {name: 'XYZ'}
+                        }
+                    })
+                    !item.maker ? item.maker = {name: ''} : null
                     if (item.type === prodType) {
                         dataResult.push(item)
                     }
-                // })
+                })
+                req.dataResult = dataResult
+                next()
             })
         } else {
-            dataResult = allData;
+            req.dataResult = allData;
+            next()
         }
-        // console.log(dataResult)  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-        res.render('index', {
-            prodType,
-            products: dataResult,
-        });
+    })
+}
+
+// Get route for product index page
+router.get('/', fetchingIndexData, (req, res) => {
+    res.render('index', {
+        prodType: req.productType,
+        products: req.dataResult,
     });
 })
 

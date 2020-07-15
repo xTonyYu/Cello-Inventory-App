@@ -13,7 +13,7 @@ const dataCellos = [{
 
     Upon her death in 1987, the Davidov, owned by Moët Hennessy Louis Vuitton, was made available for use by Yo-Yo Ma. He has since performed and recorded with the instrument in Baroque music, specifically, the Simply Baroque and Simply Baroque II recordings. It was modified especially for the task of creating a more authentic sound for that era. The Davidov has subsequently been reconfigured for modern music.'`,
 
-    photo: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.slideshare.net%2Flearningnight%2Fwhy-steal-a-violin&psig=AOvVaw0r8Tdh1jSGC1-773KqAVGz&ust=1594503291722000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOC_2-fRw-oCFQAAAAAdAAAAABAD'
+    photo: 'https://ae01.alicdn.com/kf/Hbf03e6b3d4294b90824e6e9e5f6d41b88.jpg_q50.jpg'
 },
 {
     // maker: 'Antonio Stradivari (1644 - 1737)',
@@ -28,7 +28,7 @@ const dataCellos = [{
     description: `Known as the ‘Vatican Stradivari’, this decorated instrument by Nicolo Amati was recently sold through Tarisio Private Sales. Originally made as a six string viol, this instrument was converted in the 19th century to a cello of modern proportions. The cello bears a repair inscription from Georges Chanot of Paris from 1863 and the painted garland, angels, sea creatures, fleur-de-lys, papal mitre and coat of arms presumably date from this same period.
 
     The buyer is a philanthropist whose foundation loans fine instruments to up-and-coming young musicians.`,
-    photo: 'https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.archiviodellaliuteriacremonese.it%2Fen%2Fstrumenti%2F1620_cello_vatican.aspx&psig=AOvVaw1PPqsxsai-cygzvtpODX6a&ust=1594504686579000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNj7wv_Ww-oCFQAAAAAdAAAAABAH'
+    photo: 'https://zacatecasonline.com.mx/images/nacional/2014/noviembre/21notas/stradivarius-vaticano.jpg'
 },
 {
     // maker: 'Andrea Guarneri (1626 - 1698)',
@@ -43,7 +43,7 @@ const dataCellos = [{
     
     description: `The earliest Andrea Guarneri violins unsurprisingly closely resembled the Amati style with rounded 'bouts and slender corners whose looser curves end with a slight flat. It appears that he simply continued to use the same moulds that he had in his master's workshop. The arching height is moderate with graceful fluting and the f-holes are quite Amatian, though with the upper eyes tending to be slightly too close together. As the years went on more and more characteristic features of Guarneri's work distinguished themselves. His arching tends toward fullness, and the mitres of his purfling often turning rather abruptly at the corners. The scroll was generally relatively small, without clearly defined chamfers and with shallower volutes than was typical of his teacher. He left the back plate quite thick in the centre, thinning it towards the edges, and the table of consistent thickness, though there seems to be no desire to obtain perfect accuracy in the thickening. The maple used seems to be of local origin and often fairly plain figure.`,
 
-    photo: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bromptons.co%2Freference%2Farticles%2Fdetails%2Fandrea-guarneri.html&psig=AOvVaw3gIn1qgdY5qtkeSpJujN3F&ust=1594504919435000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMi7__TXw-oCFQAAAAAdAAAAABAD'
+    photo: 'https://tarisio.com/content/uploads/2014/12/40418_c29_Plowden-1000w-e1418811967833.jpg'
 },
 {
     // maker: 'Andrea Amati (1505 - 1577)',
@@ -60,13 +60,21 @@ const dataCellos = [{
 },
 {
     title: 'W. Seifert Fine Pernambuco Cello Bow',
-    brand: 'W. Seifert',
     price: 945,
     cost: 250,
-    quantity: 8,
     status: 'in stock',
     type: 'bow',
+    quantity: 8,
     photo: 'https://cdn.shopify.com/s/files/1/2966/4646/products/130c_800x.jpg?v=1538070025',
+},
+{
+    title: 'Hofner Electric Violin AS-160E-V',
+    price: 2595,
+    cost: 850,
+    status: 'in stock',
+    type: 'violin',
+    quantity: 3,
+    photo: 'https://elcoda.com/images/super/hofner-electric-violin-as-160e-v-1.jpg',
 },
 ]
 
