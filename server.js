@@ -5,6 +5,8 @@ const db = require('./models')
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+const minimumProdTypes = ['cello', 'violin', 'bow', 'accessories']
+
 // Controllers
 const prodController = require('./controllers/prodController')
 const dashboardController = require('./controllers/dashboardController')
@@ -20,7 +22,7 @@ app.use(methodOverride('_method'));
 
 // ******------------ GET Route -----------******* /
 // home/dashboard page
-app.get('/', (req, res) => {
+app.get(['/', '/home'], (req, res) => {
     res.redirect('/dashboard');
 })
 
@@ -37,12 +39,12 @@ app.use('/:productType', function(req, res, next) {
     // below condition is based on what are in the Product.type + accessories
     db.Product.distinct('type', (err, uniqueProdTypes) => {
         if (err) console.log(err)
-        if (uniqueProdTypes.includes(req.productType) || req.productType === 'accessories') {
+        if (uniqueProdTypes.includes(req.productType) || minimumProdTypes.includes(req.productType)) {
             next(); 
         } else {
             res.send("Sorry, page not found")
         }
-    })
+    })             
 }, prodController);
 
 // ******------------ Server listening -----------******* //

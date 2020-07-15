@@ -31,7 +31,7 @@
                     <div class="table-row">
                         <div class="table-cell row-name" data-href="/<%= prodType %>/<%= product._id %>">
                             <% if (prodType !== "accessories") { %>
-                                <%= product.year %> <%= product.year %> <br>
+                                <%= product.maker.name %> <%= product.year %> <br>
                                 <%= product.title %>
                             <% } else { %>
                                 <%= product.name %>

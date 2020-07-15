@@ -31,6 +31,7 @@
                     <br>        
                 <% } %>
                 <% for (let [key] of Object.entries(schema)) { %>
+                    <% if (key.required === true) console.log('required') %>
                     <% if (key !== 'products' && key !== 'bio') { %>
                         <label for="<%= `${key}` %>"><%= `${key}: ` %></label>
                         <input type="text" class="form-control" name="<%= `${key}` %>" id="<%= `${key}` %>">
@@ -42,7 +43,7 @@
                     <% } %>  
                 <% } %>  
             
-                <button type="submit">Add</button>
+                <button type="submit">Submit</button>
             </div>
             </form>
         </div>
