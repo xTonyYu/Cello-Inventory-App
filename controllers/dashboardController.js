@@ -6,10 +6,10 @@ const router = express.Router()
 // ******------------ GET Route in /dashboard-----------******* /
 router.get('/', (req, res) => {
     let allProdTypesAndAccs = [];
+    const currencyStyle = { style: 'currency', currency: 'USD' };
     db.Product.find((err, coreProducts) => {
         if (err) console.log(err)
         // find unique product types within Product collection and group/display them separately
-        const curStyle = { style: 'currency', currency: 'USD' };
         db.Product.distinct('type', (err, uniqueProdTypes) => {
             if (err) console.log(err)
             // calculate summarized stats by each prod type 
@@ -27,9 +27,9 @@ router.get('/', (req, res) => {
                 const prodObj = {
                     name: prodType,
                     quantity: totalQty,
-                    avgPrice: Intl.NumberFormat('en-US', curStyle).format(totalPrice / totalQty),
-                    avgCost: Intl.NumberFormat('en-US', curStyle).format(totalCost / totalQty),
-                    avgMargin: Intl.NumberFormat('en-US', curStyle).format((totalPrice - totalCost) / totalQty),
+                    avgPrice: Intl.NumberFormat('en-US', currencyStyle).format(totalPrice / totalQty),
+                    avgCost: Intl.NumberFormat('en-US', currencyStyle).format(totalCost / totalQty),
+                    avgMargin: Intl.NumberFormat('en-US', currencyStyle).format((totalPrice - totalCost) / totalQty),
                 }
                 allProdTypesAndAccs.push(prodObj)
             }
@@ -47,9 +47,9 @@ router.get('/', (req, res) => {
                 const prodObj = {
                     name: 'accessories',
                     quantity: totalQty,
-                    avgPrice: totalPrice / totalQty,
-                    avgCost: totalCost / totalQty,
-                    avgMargin: (totalPrice - totalCost) / totalQty,
+                    avgPrice: Intl.NumberFormat('en-US', currencyStyle).format(totalPrice / totalQty),
+                    avgCost: Intl.NumberFormat('en-US', currencyStyle).format(totalCost / totalQty),
+                    avgMargin: Intl.NumberFormat('en-US', currencyStyle).format((totalPrice - totalCost) / totalQty),
                 }
                 allProdTypesAndAccs.push(prodObj)
                 res.render('dashboard', {
