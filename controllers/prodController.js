@@ -58,11 +58,9 @@ const fetchingIndexData = (req, res, next) => {
                     makers.forEach(maker => {
                         if (maker.products.includes(item._id)) {
                             item.maker = maker
-                        // } else {
-                        //     item.maker = {name: 'XYZ'}
                         }
                     })
-                    !item.maker ? item.maker = {name: ''} : null
+                    !item.maker ? item.maker = {name: 'xyz'} : null
                     if (item.type === prodType) {
                         dataResult.push(item)
                     }
@@ -89,17 +87,31 @@ router.get('/', fetchingIndexData, (req, res) => {
 router.get('/:id', (req, res) => {
     const prodType = req.productType;
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
-    // TODO get Maker info
-    db.Maker.find((err, makers) => {  // in case the form needs to display Maker info
+    model.findById(req.params.id, (err, foundProduct) => {
         if (err) console.log(err)
-        model.findById(req.params.id, (err, foundProduct) => {
-            if (err) console.log(err)
+        if (prodType !== 'accessories' && prodType !== 'bow') {
+            let prodMaker;
+            db.Maker.find((err, makers) => {  
+                if (err) console.log(err)
+                makers.forEach(maker => {
+                    if (maker.products.includes(foundProduct._id)) {
+                        prodMaker = maker
+                    }
+                })
+                !prodMaker ? prodMaker = {name: 'Unknown Maker'} : null
+                res.render('show', {
+                    prodType,
+                    Product: foundProduct._doc,
+                    prodMaker,
+                })
+            })
+        } else {
             res.render('show', {
                 prodType,
                 Product: foundProduct._doc,
-                makers,
+                prodMaker: {name: ''},
             })
-        });
+        }
     })
 });
 
@@ -131,7 +143,6 @@ router.put('/:id', (req, res) => {
     // update data based on req.productType
     const prodType = req.productType;
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
-    console.log('PUT route!')  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<
     model.findByIdAndUpdate(
         req.params.id,
         req.body,
@@ -141,10 +152,18 @@ router.put('/:id', (req, res) => {
             // if the update is not for accessories or bow then update Maker else redirect
             if (prodType !== 'accessories' && prodType !== 'bow') {
                 db.Maker.findOne({'products': req.params.id}, (err, foundMaker) => {
-                    if (foundMaker._id.toString() !== req.body.makerId) {
+                    if (!foundMaker) {
+
+                        db.Maker.findById(req.body.makerId, (err, newMaker) => {
+                            newMaker.products.push(foundData);
+                            newMaker.save((err, updatedMaker) => {
+                                res.redirect('/'+ prodType);
+                            })
+                        })
+                    } else if (foundMaker._id.toString() !== req.body.makerId) {
                         foundMaker.products.remove(req.params.id);
                         foundMaker.save((err, savedFoundMaker) => {
-                            db.Maker.findById(req.params.id, (err, newMaker) => {
+                            db.Maker.findById(req.body.makerId, (err, newMaker) => {
                                 newMaker.products.push(foundData);
                                 newMaker.save((err, updatedMaker) => {
                                     res.redirect('/'+ prodType);
@@ -170,18 +189,18 @@ router.delete('/:id', (req, res) => {
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
     model.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
         if (err) console.log(err)
-        // need to test below when Maker had linked products
-        // if (prodType !== 'accessories' && prodType !== 'bow') {
-        //     db.Maker.findOne({'products': req.params.id}, (err, foundMaker) => {
-        //         console.log(foundMaker)
-        //         foundMaker.products.remove(req.params.id);
-        //         foundMaker.save((err, updatedMaker) => {
-        //             res.redirect('/' + req.productType);
-        //         })
-        //     })
-        // } else {
+        // TODO need to test below when Maker had linked products
+        if (prodType !== 'accessories' && prodType !== 'bow') {
+            db.Maker.findOne({'products': req.params.id}, (err, foundMaker) => {
+                console.log(foundMaker)
+                foundMaker.products.remove(req.params.id);
+                foundMaker.save((err, updatedMaker) => {
+                    res.redirect('/' + req.productType);
+                })
+            })
+        } else {
             res.redirect('/' + req.productType);
-        // }
+        }
         console.log('deleted...', deletedProduct)
     });
 });
