@@ -33,9 +33,14 @@
                 <% for (let [key] of Object.entries(schema)) { %>
                     <% if (key.required === true) console.log('required') %>
                     <% if (key !== 'products' && key !== 'bio') { %>
-                        <label for="<%= `${key}` %>"><%= `${key}: ` %></label>
-                        <input type="text" class="form-control" name="<%= `${key}` %>" id="<%= `${key}` %>">
-                        <br>
+                        <div class="input-group mb-2">
+                            <label class="sr-only" for="<%= `${key}` %>"><%= `${key}: ` %></label>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><%= `${key}: ` %></div>
+                            </div>
+                            <input type="text" class="form-control" name="<%= `${key}` %>" id="<%= `${key}` %>">
+                            <br>
+                        </div>
                     <% } else if (key === 'bio') { %>
                         <label for="<%= `${key}` %>"><%= `${key}: ` %></label>
                         <textarea name="<%= `${key}` %>" id="<%= `${key}` %>" cols="30" rows="10"></textarea>
