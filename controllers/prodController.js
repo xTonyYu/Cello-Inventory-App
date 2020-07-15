@@ -60,7 +60,7 @@ const fetchingIndexData = (req, res, next) => {
                             item.maker = maker
                         }
                     })
-                    !item.maker ? item.maker = {name: 'xyz'} : null
+                    !item.maker ? item.maker = {name: ''} : null
                     if (item.type === prodType) {
                         dataResult.push(item)
                     }
@@ -105,7 +105,7 @@ router.get('/:id', (req, res) => {
                     prodMaker,
                 })
             })
-        } else {
+        } else {      
             res.render('show', {
                 prodType,
                 Product: foundProduct._doc,
@@ -189,7 +189,6 @@ router.delete('/:id', (req, res) => {
     const model = prodType !== 'accessories' ? db.Product : db.Accesory;
     model.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
         if (err) console.log(err)
-        // TODO need to test below when Maker had linked products
         if (prodType !== 'accessories' && prodType !== 'bow') {
             db.Maker.findOne({'products': req.params.id}, (err, foundMaker) => {
                 console.log(foundMaker)
