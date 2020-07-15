@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
 
     <title>Cellos & Violins Dashboard</title>
 </head>
@@ -14,15 +14,23 @@
     </header>
     <main id="dashboard">
         <% productTypes.forEach(type => { %>
-            <div class="card" style="width: 18rem;">
+            <div class="card dashcard" style="width: 18rem;">
                 <div class="card-body">
-                  <h3 class="card-title"><a href="/<%= type.name %>"><%= type.name %></a></h3>
-                  <p>Quantity: <%= type.quantity %></p>
-                  <p>Average Price: <%= type.avgPrice %></p>
-                  <p>Average Cost: <%= type.avgCost %></p>
-                  <p>Average Margin: <%= type.avgMargin %></p>
+                    <h3 class="card-title"><a href="/<%= type.name %>"><%= type.name %></a></h3>
+                    <p>Quantity: <%= type.quantity %></p>
+                    <p>Average Price: <%= type.avgPrice %></p>
+                    <p>Average Cost: <%= type.avgCost %></p>
+                    <p>Average Margin: <%= type.avgMargin %></p>
+                    <div class="card-body btn-group dash-btn-grp " role="group" aria-label="Basic example">
+                        <a href="/<%= type.name %>">
+                            <button type="button" class="btn btn-secondary">Details</button>
+                        </a>
+                        <a href="/<%= type.name %>/new">
+                            <button type="button" class="btn btn-secondary">Add new</button>
+                        </a>
+                    </div>
                 </div>
-              </div>
+            </div>
             <!-- <section class="product-type">
                 <div class="product-display">                    
                     <h3><a href="/<%= type.name %>"><%= type.name %></a></h3>
@@ -36,9 +44,9 @@
                 </div>
             </section> -->
         <% }) %>
-        <section class="card" style="width: 18rem;">
+        <section class="card dashcard" style="width: 18rem;">
             
-            <div class="card-body"">
+            <div class="card-body">
                 <h3>Monthly Finances</h3>
                 <p>Sales:        $1,254,672</p>
                 <p>Inventory cost: $785,624</p>

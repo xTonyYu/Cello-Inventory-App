@@ -42,9 +42,23 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     width: 80vw;
-    margin: 0 auto;
+    margin: 20px 0 0 0;
 }
 
+.dashcard {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px;
+    position: relative;
+}
+.dash-btn-grp {
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex; 
+    justify-self: flex-end;
+}
 .product-type {
     display: flex;
     width: 40%;
@@ -54,6 +68,10 @@ main {
     display: flex;
     width: 40%;
     justify-content: center;
+}
+
+footer {
+    align-self: flex-end;
 }
 
 /* index */
