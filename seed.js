@@ -7,11 +7,11 @@ const starter = require('./data/starterData')
 db.Product.deleteMany({},(err, deletedData) => {
     if (err) console.log(err)
     console.log('Delete all doc - resetting Product collection')
-    // db.Product.create(starter.dataCellos, (err, loadedData) => {
-    //     if (err) console.log(err)
-    //     console.log("PRODUCT data loaded.")
-    //     // console.log("PRODUCT data loaded...", loadedData)
-    // })
+    db.Product.create(starter.dataCellos, (err, loadedData) => {
+        if (err) console.log(err)
+        console.log("PRODUCT data loaded.")
+        // console.log("PRODUCT data loaded...", loadedData)
+    })
 })
 db.Accesory.deleteMany({},(err, deletedData) => {
     if (err) console.log(err)

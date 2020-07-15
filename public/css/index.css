@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+/* header */
+.logo {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+.navbutt {
+    border: 1px solid black;
+}
+
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    background-color: cadetblue;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80vw;
+}
+.delete-btn {
+    background-color: rgba(117, 5, 5, 0.925);
+}
+/* Dashboard */
+
+#dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80vw;
+    margin: 20px 0 0 0;
+}
+
+.dashcard {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px;
+    position: relative;
+}
+.dash-btn-grp {
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex; 
+    justify-self: flex-end;
+}
+.product-type {
+    display: flex;
+    width: 40%;
+    justify-content: center;
+}
+.finances {
+    display: flex;
+    width: 40%;
+    justify-content: center;
+}
+
+footer {
+    align-self: flex-end;
+}
+
+/* index */
+.products {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+.product-table {
+    justify-content: center;
+    display: flex;
+}
+
+.products div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.table-row {
+    width: 80vw;
+    height: 50px;
+    display: inline-block;
+}
+.table-cell {
+    height: 100%;
+    padding: 3px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.row-name {
+    width: 20%;
+}
+.row-status {
+    margin: 0;
+    width: 7%;
+}
+.row-quantity {
+    width: 2%;
+}
+.row-price {
+    width: 10%;
+}
+.row-cost {
+    width: 10%;
+}
+
+/* forms */
+form {
+    display: flex;
+    justify-content: center;
+}
+.form-group {
+    width: 80vw;
+    display: block;
+    justify-content: center;
+}
+
+.form-control {
+    width: 100%;
+}
