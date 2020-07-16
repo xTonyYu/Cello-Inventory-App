@@ -16,8 +16,7 @@
 }
 .description {
     margin: 5px 5px 70px 5px;
-    padding: 15px;
-    background-color: rgb(250, 245, 245);   
+    width: 100%;
 }
 .show-photo {
     box-shadow: 4px 4px 3px;
