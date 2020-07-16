@@ -64,7 +64,6 @@ div .container {
     background-color: lightgray;
     border: solid 3px steelblue;
     border-radius: 20px;
-    box-shadow: 2px 2px rgb(119, 191, 250), 2px 2px  rgb(119, 191, 250), 1px 1px  rgb(119, 191, 250);
     margin: 5px;
 }
 .card-body {
@@ -85,18 +84,6 @@ div .container {
 .btn {
     margin: 2px;
 }
-
-/* .product-type {
-    display: flex;
-    width: 40%;
-    justify-content: center;
-}
-.finances {
-    display: flex;
-    width: 40%;
-    justify-content: center;
-} */
-
 
 /* forms */
 form {

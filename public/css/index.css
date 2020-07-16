@@ -20,14 +20,14 @@
 
 .table-row {
     width: 70vw;
-    background-color: white;
+    background-color: lightgray;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     border: solid 3px steelblue;
     border-radius: 20px;
-    box-shadow: 2px 2px rgb(119, 191, 250), 2px 2px  rgb(119, 191, 250), 1px 1px  rgb(119, 191, 250);
+    box-shadow: 4px 4px 3px;
     padding: 5px 15px;
     margin: 5px;
 }
