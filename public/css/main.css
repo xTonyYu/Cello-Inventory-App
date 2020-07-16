@@ -10,6 +10,9 @@ body {
     background-size: cover;
     /* background-color: cadetblue; */
 }
+.gray-bg {
+    background-color: rgb(52, 58, 64);
+}
 .lk-rm {
     color: black;
 }
@@ -29,22 +32,19 @@ footer {
     border-radius: 10px 10px 0 0;
     color: lightgray;
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     justify-content: center;
+    height: 42px;
 }
 .footer-div {
     margin: 0 3px 0 3px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* min-width: 50px; */
     height: 100%;
 }
-/* .footer-div i {
-    height: 100%;
-    width: 100%;
-} */
+
 .about-us {
     display: flex;
     height: 50px;
@@ -101,6 +101,7 @@ div .container {
     margin: 20px 0 0 0;
 }
 .dashcard {
+    background-color: rgb(250, 245, 245);
     box-shadow: 4px 4px 3px;
     display: flex;
     flex-wrap: wrap;
