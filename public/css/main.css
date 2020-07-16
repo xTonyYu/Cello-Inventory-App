@@ -8,7 +8,6 @@ body {
     justify-content: center;
     margin: 0;
     background-size: cover;
-    /* background-color: cadetblue; */
 }
 .gray-bg {
     background-color: rgb(52, 58, 64);
@@ -21,7 +20,6 @@ body {
 }
 
 main {
-    /* background-color: darkgrey; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -51,19 +49,9 @@ footer {
     padding: 3px;
     justify-content: center;
     align-items: center;
+    margin: 20px 0 60px 0;
 }
-.tony {
-    padding: 0 10px 0 10px;
-    border-right: 1px solid lightgray;
-}
-.luci {
-    
-    padding: 0 10px 0 10px;
-    border-left: 1px solid lightgray;
-}
-.about-us a { 
-    color: inherit; 
-} 
+
 .delete-btn {
     background-color: rgba(117, 5, 5, 0.925);
 }
@@ -91,14 +79,10 @@ footer {
 div .container {
     margin: 0 0 0 0;
 }
-/* Dashboard */
 
+/* Dashboard */
 #dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     width: 80vw;
-    margin: 20px 0 0 0;
 }
 .dashcard {
     background-color: rgb(250, 245, 245);
@@ -108,79 +92,28 @@ div .container {
     margin: 4px;
     position: relative;
     background-color: lightgray;
+    border: solid 3px steelblue;
+    border-radius: 20px;
+    margin: 5px;
+}
+.card-body {
+    padding: 15px 15px 50px 15px;
+}
+.card-body p {
+    display: block;
+    margin-bottom: 10px;
 }
 .dash-btn-grp {
     padding: 0;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 5px;
+    right: 10px;
     display: flex; 
     justify-self: flex-end;
 }
-.product-type {
-    display: flex;
-    width: 40%;
-    justify-content: center;
+.btn {
+    margin: 2px;
 }
-.finances {
-    display: flex;
-    width: 40%;
-    justify-content: center;
-}
-
-
-/* index */
-/* .products {
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-}
-.product-table {
-    justify-content: center;
-    display: flex;
-}
-
-.products div {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.table-row {
-    width: 70vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border: solid 1px steelblue;
-}
-.table-cell {
-    height: 100%;
-    padding: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.row-name {
-    width: 30%;
-    min-width: 200px;
-}
-.row-status {
-    margin: 0;
-    width: 7%;
-    min-width: 80px;
-}
-.row-quantity {
-    width: 3%;
-    min-width: 50px;
-}
-.row-price {
-    width: 10%;
-    min-width: 120px;
-}
-.row-cost {
-    width: 10%;
-    min-width: 120px;
-} */
-
 
 /* forms */
 form {
@@ -200,6 +133,37 @@ form {
 /* footer */
 
 footer {
-    justify-self: center;
+    border-radius: 10px 10px 0 0;
+    color: lightgray;
+    display: flex;
+    position: fixed;
     bottom: 0px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
+.footer-div {
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-width: 50px; */
+    height: 100%;
+}
+
+.about-us {
+    display: flex;
+    height: 50px;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+}
+.luci,
+.tony {
+    padding: 0px 10px;
+    border-right: 1px solid lightgray;
+}
+
+.about-us a { 
+    color: inherit; 
+} 
