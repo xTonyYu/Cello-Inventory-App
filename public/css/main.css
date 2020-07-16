@@ -90,7 +90,7 @@ main {
 }
 .ind-name {
     padding: 0 10px 0 10px;
-    background-color: #d3d3d3;   
+    background-color: rgb(250, 245, 245);    
     margin: 0
 }
 .card-body {
@@ -125,11 +125,18 @@ form {
 .form-group {
     width: 60vw;
     display: block;
-    justify-content: center;
-    
+    justify-content: center;  
 }
 .form-control {
     width: 100%;
+}
+.form-line {
+    display: flex;
+    margin-top: 20px;
+    background-color: rgb(106, 115, 123);
+}
+.form-label {
+    padding: 4px 5px 0 6px;
 }
 .input-group {
     margin: 15px 0;;
@@ -217,4 +224,15 @@ footer {
 .btn-right {
     border-radius: 0 4px 4px 0;
     margin-right: 3px;
+}
+.tm-20 {
+    margin-top: 20px;
+}
+.wcf {
+    width: fit-content;
+}
+.disflex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
