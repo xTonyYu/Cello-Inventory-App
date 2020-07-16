@@ -7,6 +7,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin: 0;
+    background-size: cover;
     /* background-color: cadetblue; */
 }
 
@@ -18,6 +19,45 @@ main {
     width: 80vw;
     height: 100%;
 }
+footer {
+    border-radius: 10px 10px 0 0;
+    color: lightgray;
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    justify-content: center;
+}
+.footer-div {
+    margin: 0 3px 0 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-width: 50px; */
+    height: 100%;
+}
+/* .footer-div i {
+    height: 100%;
+    width: 100%;
+} */
+.about-us {
+    display: flex;
+    height: 50px;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+}
+.tony {
+    padding: 0 10px 0 10px;
+    border-right: 1px solid lightgray;
+}
+.luci {
+    
+    padding: 0 10px 0 10px;
+    border-left: 1px solid lightgray;
+}
+.about-us a { 
+    color: inherit; 
+} 
 .delete-btn {
     background-color: rgba(117, 5, 5, 0.925);
 }
@@ -79,9 +119,6 @@ div .container {
     justify-content: center;
 }
 
-footer {
-    align-self: flex-end;
-}
 
 /* index */
 /* .products {
@@ -149,4 +186,11 @@ form {
 
 .form-control {
     width: 100%;
+}
+
+/* footer */
+
+footer {
+    justify-self: center;
+    bottom: 0px;
 }
