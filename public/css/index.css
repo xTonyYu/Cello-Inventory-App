@@ -19,7 +19,7 @@
 
 .table-row {
     width: 70vw;
-    background-color: lightgray;
+    background-color: rgb(250, 245, 245);  
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
