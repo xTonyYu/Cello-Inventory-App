@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url('/images/IMG_20170825_180318.jpg');
+    background-image: url('/images/iwN3lBU.png');
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -85,7 +85,7 @@ main {
     width: 80vw;
 }
 .dashcard {
-    background-color: #faf5f5;   
+    background-color: rgb(250, 245, 245);   
     display: flex;
     flex-wrap: wrap;
     margin: 4px;
@@ -160,7 +160,7 @@ form {
     top: 5px;
 }
 .maker-drop {
-    background-color: #6a737b;
+    background-color: rgb(106, 115, 123);
     height: fit-content;
     width: fit-content;
     padding: 0 0 0 5px;
@@ -173,12 +173,13 @@ form {
 /* footer */
 footer {
     border-radius: 10px 10px 0 0;
-    color: lightgray;
+    color: rgb(250, 245, 245);   
     display: flex;
     position: fixed;
     bottom: 0px;
     justify-content: center;
     flex-wrap: wrap;
+    background-color: rgb(87, 96, 104);
 }
 .footer-div {
     margin: 0 5px;
@@ -239,4 +240,10 @@ footer {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+}
+.reg-title {
+    width: 140px;
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 4px;
 }

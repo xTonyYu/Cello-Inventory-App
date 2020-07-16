@@ -11,35 +11,26 @@
     </header>
     <main>
         <div>
-            <h2>Register</h2>
+            <h2 class="card border reg-title disflex">Register</h2>
             <h3><%= msg %></h3>
             <form action="/register" method="POST">
                 <div class="form-group">
-                    <div class="input-group mb-2 border">
-                        <label class="sr-only" for="name">Name</label>
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">Name</div>
-                        </div>
-                        <input type="text" class="form-control" name="name" id="name">
+                    <div class="border form-line">
+                        <label class="form-label" for="name">Name</label>
+                        <input type="text" class="border form-control" name="name" id="name">
                         <br>
                     </div>
-                    <div class="input-group mb-2 border">
-                        <label class="sr-only" for="email">Email</label>
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">Email</div>
-                        </div>
-                        <input type="email" class="form-control" name="email" id="email">
+                    <div class="border form-line">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" class="border form-control" name="email" id="email">
                         <br>
                     </div>
-                    <div class="input-group mb-2 border">
-                        <label class="sr-only" for="password">Password</label>
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">Password</div>
-                        </div>
-                        <input type="password" class="form-control" name="password" id="password">
+                    <div class="border form-line">
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" class="border form-control" name="password" id="password">
                         <br>
                     </div>
-                <button type="submit" class="btn btn-secondary bg-dark submit">Register</button>
+                <button type="submit" class="btn btn-secondary border submit tm-20">Register</button>
             </div>
             </form>
         </div>
