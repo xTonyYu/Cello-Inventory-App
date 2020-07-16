@@ -2,6 +2,60 @@
 <html lang="en">
 <head>
     <%- include('./_head.ejs') %>
+    <!--  Google chart API -->
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+        // data 
+        const products = <%- JSON.stringify(products) %>;
+        const prodType = <%- JSON.stringify(prodType) %>;
+        const maker = <%- JSON.stringify(prodType) %>;
+        console.log(products)
+        let prodData = new Array();
+        products.forEach((product, i)=> { 
+            let dataPair = []
+            if (prodType !== "accessories") {
+                
+                dataPair.push(product.year + ' ' + product.title)
+                dataPair.push(product.price * product.quantity)
+            } else {
+                dataPair.push(product.name)
+                dataPair.push(product.price * product.quantity)
+            }
+            prodData.push(dataPair)
+            console.dir(prodData)
+        })
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        const data = new google.visualization.DataTable();
+        data.addColumn('string', 'Products');
+        data.addColumn('number', 'Value');
+        data.addRows(prodData);
+
+        // Set chart options
+        const options = { 'title':'Inventory Market Value',
+                        'width':400,
+                        'height':200,
+                        'backgroundColor': '#d3d3d3',
+                    };
+
+        // Instantiate and draw our chart, passing in some options.
+        const chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
     <link rel="stylesheet" href="/css/index.css">
     <% const currencyStyle = { style: 'currency', currency: 'USD' } %>
     <title><%= prodType %> Index</title>
@@ -9,6 +63,7 @@
 <body>
     <header>
         <%- include('./_header.ejs') %>
+        <!-- <p id="productData" style="display:none"><%= products %></p> -->
     </header>
     <main>
         <section class="products">
@@ -24,6 +79,9 @@
                     <h3> - Demo Only - future module to be build</h3>
                 <% } %>
             </div>
+            <!-- Goggle chart -->
+            <div class="table-row border" id="chart_div"></div>
+            
             <% products.forEach(product=> { %>
                 <div class="table-row border">
                     <div class="table-cell row-name" data-href="/<%= prodType %>/<%= product._id %>">

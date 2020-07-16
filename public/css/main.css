@@ -81,7 +81,7 @@ main {
     width: 80vw;
 }
 .dashcard {
-    background-color: rgb(250, 245, 245);   
+    background-color: #faf5f5;   
     display: flex;
     flex-wrap: wrap;
     margin: 4px;
@@ -90,7 +90,7 @@ main {
 }
 .ind-name {
     padding: 0 10px 0 10px;
-    background-color: rgb(211, 211, 211);   
+    background-color: #d3d3d3;   
     margin: 0
 }
 .card-body {
@@ -149,7 +149,7 @@ form {
     top: 5px;
 }
 .maker-drop {
-    background-color: rgb(106, 115, 123);
+    background-color: #6a737b;
     height: fit-content;
     width: fit-content;
     padding: 0 0 0 5px;
