@@ -13,17 +13,19 @@
     <main>
         <section class="products">
             <div class="title">
-                <h2><%= prodType %></h2>
+                <div class="card ind-name border">
+                    <h2><%= prodType %></h2>
+                </div>
                 <% if (prodType !== 'sales') { %> 
                     <a href="/<%= prodType %>/new">
-                        <button type="button" class="btn btn-secondary bg-dark ">Add new</button>
+                        <button type="button" class="btn btn-secondary border">Add new</button>
                     </a>
                 <% } else { %>
                     <h3> - Demo Only - future module to be build</h3>
                 <% } %>
             </div>
             <% products.forEach(product=> { %>
-                <div class="table-row">
+                <div class="table-row border">
                     <div class="table-cell row-name" data-href="/<%= prodType %>/<%= product._id %>">
                         <% if (prodType !== "accessories") { %>
                             <%= product.maker.name %> <%= product.year %> <br>
@@ -40,10 +42,10 @@
                     </div>
                     <div class="table-cell btn-group row-action" role="group" aria-label="Basic example">
                         <form action="/<%= prodType %>/<%= product._id %>" method="GET">
-                            <button type="submit" type="button" class="btn btn-secondary bg-dark">Detail</button>
+                            <button type="submit" type="button" class="btn btn-secondary btn-left">Detail</button>
                         </form>
                         <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
-                            <button type="submit" type="button" class="btn btn-secondary bg-dark">Update</button>
+                            <button type="submit" type="button" class="btn btn-secondary btn-right">Update</button>
                         </form>
                         <form action="/<%= prodType %>/<%= product._id %>?_method=DELETE" method="POST">
                             <button type="submit" type="button" class="btn btn-secondary delete-btn">Delete</button>
