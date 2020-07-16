@@ -18,17 +18,17 @@
         <% productTypes.forEach(type => { %>
             <div class="card dashcard" style="width: 18rem;">
                 <div class="card-body">
-                    <h3 class="card-title"><a href="/<%= type.name %>"><%= type.name %></a></h3>
+                    <h3 class="card-title"><a class="lk-rm" href="/<%= type.name %>"><%= type.name %></a></h3>
                     <p>Quantity: <%= type.quantity %></p>
                     <p>Average Price: <%= type.avgPrice %></p>
                     <p>Average Cost: <%= type.avgCost %></p>
                     <p>Average Margin: <%= type.avgMargin %></p>
                     <div class="card-body btn-group dash-btn-grp " role="group" aria-label="Basic example">
                         <a href="/<%= type.name %>">
-                            <button type="button" class="btn btn-secondary">Details</button>
+                            <button type="button" class="btn btn-secondary bg-dark" style="border-radius: 3px 0 0 3px;">Details</button>
                         </a>
                         <a href="/<%= type.name %>/new">
-                            <button type="button" class="btn btn-secondary">Add new</button>
+                            <button type="button" class="btn btn-secondary bg-dark" style="border-radius: 0 3px 3px 0;">Add new</button>
                         </a>
                     </div>
                 </div>
