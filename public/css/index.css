@@ -28,7 +28,7 @@
     border: solid 3px steelblue;
     border-radius: 20px;
     box-shadow: 2px 2px rgb(119, 191, 250), 2px 2px  rgb(119, 191, 250), 1px 1px  rgb(119, 191, 250);
-    padding: 5px;
+    padding: 5px 15px;
     margin: 5px;
 }
 .table-cell {
@@ -63,7 +63,4 @@
 }
 .row-action {
     display: flex;
-}
-.btn {
-    margin: 2px;
 }
