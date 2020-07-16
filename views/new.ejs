@@ -34,10 +34,10 @@
                 <% for (let [key] of Object.entries(schema)) { %>
                     <% if (key.required === true) console.log('required') %>
                     <% if (key !== 'products' && key !== 'bio') { %>
-                        <div class="maker-drop border">
-                            <label class="maker-label" for="<%= `${key}` %>"><%= `${key}: ` %></label>
+                        <div class="border form-line">
+                            <label class="form-label" for="<%= `${key}` %>"><%= `${key}: ` %></label>
                             <!-- <div class="input-group-text"><%= `${key}: ` %></div> -->
-                            <input type="text" class="border" name="<%= `${key}` %>" id="<%= `${key}` %>">
+                            <input type="text" class="border form-control" name="<%= `${key}` %>" id="<%= `${key}` %>">
                             <br>
                         </div>
                     <% } else if (key === 'bio') { %>
@@ -47,7 +47,7 @@
                     <% } %>  
                 <% } %>  
             
-                <button type="submit" class="btn btn-secondary submit border">Submit</button>
+                <button type="submit" class="btn btn-secondary submit border tm-20">Submit</button>
             </div>
             </form>
         </div>
