@@ -17,6 +17,7 @@
 }
 .show-photo {
     width: 100%;
+    background-color: lightgray;
     border: solid 3px steelblue;
     box-shadow: 4px 4px 3px;
 }
@@ -34,6 +35,5 @@
 }
 
 .description {
-    background-color: lightgray;
     padding: 15px;
 }

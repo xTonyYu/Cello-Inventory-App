@@ -12,9 +12,8 @@
     <main>
         <div>
             <h2><%= prodType %></h2>
-            <h3><%= priorProdType %></h3>
             <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
-                <a href="/maker/new?_priorProdType=<%= prodType %>"><button type="submit">Add New Maker</button></a>
+                <a href="/maker/new?_priorProdType=<%= prodType %>"><button type="submit" class="btn btn-secondary bg-dark">Add New Maker</button></a>
                 <br>
             <% } %>
             <form action="/<%= prodType %>/<%= Product._id %>?_priorProdType=<%= priorProdType %>&_method=PUT" method="POST">
@@ -41,7 +40,6 @@
                             </div>
                             <input type="text" class="form-control" name="<%= `${key}` %>" id="<%= `${key}` %>" value="<%= Product[key] %>">
                         </div>
-                        <br>
                     <% } else if (key === 'bio') { %>
                         <label for="<%= `${key}` %>"><%= `${key}: ` %></label>
                         <textarea name="<%= `${key}` %>" id="<%= `${key}` %>" value="<%= Product[key] %>" cols="30" rows="10"></textarea>
@@ -49,7 +47,7 @@
                     <% } %>  
                 <% } %>  
             
-                <button type="submit">Submit</button>
+                <button type="submit" class="btn btn-secondary bg-dark submit">Submit</button>
             </div>
             </form>
         </div>

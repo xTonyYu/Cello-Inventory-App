@@ -121,6 +121,22 @@ form {
 .form-control {
     width: 100%;
 }
+.input-group {
+    margin: 15px 0;;
+}
+
+.form-group label {
+    color: whitesmoke;
+}
+
+#maker {
+    height: 38px;
+    margin: 15px 0;
+}
+
+.submit {
+    float: right;
+}
 
 /* footer */
 footer {

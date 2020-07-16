@@ -12,15 +12,14 @@
     <main>
         <div>
             <h2><%= prodType %></h2>
-            <h3><%= priorProdType %></h3>
             <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
-                <a href="/maker/new?_priorProdType=<%= prodType %>"><button type="submit">Add New Maker</button></a>
+                <a href="/maker/new?_priorProdType=<%= prodType %>"><button type="submit" class="btn btn-secondary bg-dark new-maker">Add New Maker</button></a>
                 <br>
             <% } %>
             <form action="/<%= prodType %>?_priorProdType=<%= priorProdType %>" method="POST">
                 <div class="form-group">
                 <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
-                    <label for="Maker">Maker</label>
+                    <label for="maker">Maker</label>
                     <select type="text" id="maker" name="makerId"> 
                         <% for (let i = 0; i < makers.length; i++) { %>
                             <option value="<%= makers[i]._id %>"><%= makers[i].name %></option>
@@ -46,7 +45,7 @@
                     <% } %>  
                 <% } %>  
             
-                <button type="submit">Submit</button>
+                <button type="submit" class="btn btn-secondary bg-dark submit">Submit</button>
             </div>
             </form>
         </div>
