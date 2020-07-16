@@ -1,5 +1,6 @@
 const express = require('express');
 const methodOverride = require('method-override')
+require('dotenv').config()
 const session = require('express-session');
 const db = require('./models')
 
@@ -22,6 +23,20 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 
+// Express session
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave:false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 *60 *60 *24 *7 *2 //expires in two weeks
+    }
+}));
+
+app.use((req, res, next) => {
+    if (req.url !== '/register'  && req.url !== '/login' && req.url !== '/'  && !req.session.currentUser) return res.redirect('/login');
+    next();
+});
 
 // ******------------ GET Route -----------******* /
 // home/dashboard page

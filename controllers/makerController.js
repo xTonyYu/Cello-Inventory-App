@@ -6,11 +6,11 @@ const router = express.Router()
 // ******------------ POST Route (CREATE) -----------******* //
 // get add new form page
 router.get('/new', (req, res) => {
-        res.render('new', {
-            prodType: req.productType,
-            schema: db.Maker.schema.obj,
-            priorProdType: req.query._priorProdType
-        });
+    res.render('new', {
+        prodType: req.productType,
+        schema: db.Maker.schema.obj,
+        priorProdType: req.query._priorProdType
+    });
 });
 
 // create data
