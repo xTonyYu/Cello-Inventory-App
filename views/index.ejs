@@ -16,7 +16,7 @@
                 <h2><%= prodType %></h2>
                 <% if (prodType !== 'sales') { %> 
                     <a href="/<%= prodType %>/new">
-                        <button type="button" class="btn btn-secondary">Add new</button>
+                        <button type="button" class="btn btn-secondary bg-dark ">Add new</button>
                     </a>
                 <% } else { %>
                     <h3> - Demo Only - future module to be build</h3>
@@ -40,10 +40,10 @@
                     </div>
                     <div class="table-cell btn-group row-action" role="group" aria-label="Basic example">
                         <form action="/<%= prodType %>/<%= product._id %>" method="GET">
-                            <button type="submit" type="button" class="btn btn-secondary">Detail</button>
+                            <button type="submit" type="button" class="btn btn-secondary bg-dark">Detail</button>
                         </form>
                         <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
-                            <button type="submit" type="button" class="btn btn-secondary">Update</button>
+                            <button type="submit" type="button" class="btn btn-secondary bg-dark">Update</button>
                         </form>
                         <form action="/<%= prodType %>/<%= product._id %>?_method=DELETE" method="POST">
                             <button type="submit" type="button" class="btn btn-secondary delete-btn">Delete</button>

@@ -9,6 +9,9 @@ body {
     margin: 0;
     background-size: cover;
 }
+h2 {
+    color: whitesmoke;
+}
 .lk-rm {
     color: black;
 }
@@ -99,9 +102,24 @@ form {
 .form-control {
     width: 100%;
 }
+.input-group {
+    margin: 15px 0;;
+}
+
+.form-group label {
+    color: whitesmoke;
+}
+
+#maker {
+    height: 38px;
+    margin: 15px 0;
+}
+
+.submit {
+    float: right;
+}
 
 /* footer */
-
 footer {
     border-radius: 10px 10px 0 0;
     color: lightgray;
@@ -128,12 +146,16 @@ footer {
     justify-content: center;
     align-items: center;
 }
-.luci,
+
 .tony {
     padding: 0px 10px;
     border-right: 1px solid lightgray;
+}
+.luci {
+    padding: 0px 10px;
 }
 
 .about-us a { 
     color: inherit; 
 } 
+
