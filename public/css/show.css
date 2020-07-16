@@ -1,0 +1,35 @@
+/* Show page */
+
+.container {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    max-width: 450px;
+}
+
+.card,
+.description,
+.show-photo {
+    margin: 10px auto;
+    width: 100%;
+    border: solid 3px steelblue;
+    border-radius: 20px;
+    box-shadow: 2px 2px rgb(119, 191, 250), 2px 2px  rgb(119, 191, 250), 1px 1px  rgb(119, 191, 250);
+}
+.card-body {
+    padding: 5px 15px;
+    margin: 0;
+}
+
+.btn-group {
+    margin: 0 10px 5px 0;
+    padding: 3px;
+}
+.btn {
+    margin: 2px;
+}
+
+.description {
+    background-color: white;
+    padding: 15px;
+}
