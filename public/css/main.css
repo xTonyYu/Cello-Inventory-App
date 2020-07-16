@@ -15,6 +15,10 @@ body {
 .carousel-item {
     height: 200px;
 }
+.d-block {
+    vertical-align: bottom;
+}
+
 .logo {
     display: flex;
     justify-content: center;
@@ -36,7 +40,7 @@ div .container {
 }
 
 /* footer */
-footer {
+/* footer {
     border-radius: 10px 10px 0 0;
     color: lightgray;
     display: flex;
@@ -59,7 +63,7 @@ footer {
     justify-content: center;
     align-items: center;
     margin: 20px 0 60px 0;
-}
+} */
 .delete-btn {
     background-color: rgba(117, 5, 5, 0.925);
 }

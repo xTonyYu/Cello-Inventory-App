@@ -17,6 +17,10 @@
 
 }
 
+#chart-div {
+    width: 20%
+}
+
 .table-row {
     width: 70vw;
     background-color: rgb(250, 245, 245);  
