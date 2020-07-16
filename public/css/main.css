@@ -2,13 +2,19 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url("https://thumbs.dreamstime.com/b/old-cello-wood-texture-wooden-dusty-scratched-surface-119888517.jpg");
+    background-image: url('/images/IMG_20170825_180318.jpg');
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0;
     background-size: cover;
     /* background-color: cadetblue; */
+}
+.lk-rm {
+    color: black;
+}
+.txt-sl {
+    color: lightgray;
 }
 
 main {
@@ -72,6 +78,7 @@ footer {
     width: 100vw;
 }
 .navbar {
+    box-shadow: 0px 3px 2px;
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -93,12 +100,13 @@ div .container {
     width: 80vw;
     margin: 20px 0 0 0;
 }
-
 .dashcard {
+    box-shadow: 4px 4px 3px;
     display: flex;
     flex-wrap: wrap;
-    margin: 2px;
+    margin: 4px;
     position: relative;
+    background-color: lightgray;
 }
 .dash-btn-grp {
     padding: 0;
