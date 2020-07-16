@@ -1,23 +1,27 @@
 /* Show page */
 
 .container {
-    flex-direction: column;
     display: flex;
     justify-content: center;
-    max-width: 450px;
+    max-width: 70vw;
+    flex-wrap: wrap;
 }
 
 .card,
-.description,
+.show-card {
+    width: 30%;
+    margin: 5px;
+}
+.description {
+    margin: 5px 5px 70px 5px;
+}
 .show-photo {
-    margin: 10px auto;
     width: 100%;
     border: solid 3px steelblue;
-    border-radius: 20px;
     box-shadow: 4px 4px 3px;
 }
 .card-body {
-    padding: 5px 15px;
+    padding: 2px 15px;
     margin: 0;
 }
 

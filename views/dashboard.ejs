@@ -11,7 +11,7 @@
     </header>
     <main id="dashboard">
         <% productTypes.forEach(type => { %>
-            <div class="card dashcard" style="width: 18rem;">
+            <div class="card dashcard border" style="width: 18rem;">
                 <div class="card-body">
                     <h3 class="card-title"><a class="lk-rm" href="/<%= type.name %>"><%= type.name %></a></h3>
                     <p>Quantity: <%= type.quantity %></p>
@@ -29,7 +29,7 @@
                 </div>
             </div>
         <% }) %>
-        <section class="card dashcard" style="width: 18rem;">
+        <section class="card dashcard border" style="width: 18rem;">
             
             <div class="card-body">
                 <h3>Monthly Finances</h3>

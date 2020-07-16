@@ -12,7 +12,7 @@
     <main>
         <section class="container">
             
-            <div class="card">
+            <div class="card border show-card">
                 <h3 class="card-body"><%= prodMaker.name %></h3>
                 <% for (let [key, value] of Object.entries(Product)) { %>
                     <% if (key !== 'description' && key !== 'photo' && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') { %>
@@ -28,9 +28,9 @@
                     </form>
                 </div>
             </div>
-            <div ><img src="<%= Product.photo %> " class="show-photo"></div>
+            <div ><img src="<%= Product.photo %> " class="show-photo border"></div>
             <% if (Product.description) { %>
-                <div class="description"><%= Product.description %></div>
+                <div class="description border"><%= Product.description %></div>
             <% } %>
         </section>
     </main>
