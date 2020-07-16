@@ -11,31 +11,33 @@
     </header>
     <main>
         <div>
-            <h2><%= prodType %></h2>
-            <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
-                <a href="/maker/new?_priorProdType=<%= prodType %>"><button type="submit" class="btn btn-secondary bg-dark new-maker">Add New Maker</button></a>
-                <br>
-            <% } %>
+            <div class="title form-head">
+                <h2 class="card border new-title"><%= prodType %></h2>
+                <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
+                    <a href="/maker/new?_priorProdType=<%= prodType %>"><button type="submit" class="btn btn-secondary border new-maker">Add New Maker</button></a>
+                    <br>
+                <% } %>
+            </div>  
             <form action="/<%= prodType %>?_priorProdType=<%= priorProdType %>" method="POST">
                 <div class="form-group">
-                <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
-                    <label for="maker">Maker</label>
-                    <select type="text" id="maker" name="makerId"> 
-                        <% for (let i = 0; i < makers.length; i++) { %>
-                            <option value="<%= makers[i]._id %>"><%= makers[i].name %></option>
-                        <% } %>
-                    </select>
+                <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>  
+                    <div class="maker-drop border"> 
+                        <label for="maker" class="maker-label">Maker</label>
+                        <select class="border" type="text" id="maker" name="makerId"> 
+                            <% for (let i = 0; i < makers.length; i++) { %>
+                                <option value="<%= makers[i]._id %>"><%= makers[i].name %></option>
+                            <% } %>
+                        </select>
+                    </div> 
                     <br>        
                 <% } %>
                 <% for (let [key] of Object.entries(schema)) { %>
                     <% if (key.required === true) console.log('required') %>
                     <% if (key !== 'products' && key !== 'bio') { %>
-                        <div class="input-group mb-2 border">
-                            <label class="sr-only" for="<%= `${key}` %>"><%= `${key}: ` %></label>
-                            <div class="input-group-prepend">
-                                <div class="input-group-text"><%= `${key}: ` %></div>
-                            </div>
-                            <input type="text" class="form-control" name="<%= `${key}` %>" id="<%= `${key}` %>">
+                        <div class="maker-drop border">
+                            <label class="maker-label" for="<%= `${key}` %>"><%= `${key}: ` %></label>
+                            <!-- <div class="input-group-text"><%= `${key}: ` %></div> -->
+                            <input type="text" class="border" name="<%= `${key}` %>" id="<%= `${key}` %>">
                             <br>
                         </div>
                     <% } else if (key === 'bio') { %>
@@ -45,7 +47,7 @@
                     <% } %>  
                 <% } %>  
             
-                <button type="submit" class="btn btn-secondary bg-dark submit">Submit</button>
+                <button type="submit" class="btn btn-secondary submit border">Submit</button>
             </div>
             </form>
         </div>
