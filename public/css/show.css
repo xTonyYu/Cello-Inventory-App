@@ -12,6 +12,7 @@
 .show-photo {
     margin: 10px auto;
     width: 100%;
+    background-color: lightgray;
     border: solid 3px steelblue;
     border-radius: 20px;
     box-shadow: 4px 4px 3px;
@@ -30,6 +31,5 @@
 }
 
 .description {
-    background-color: lightgray;
     padding: 15px;
 }

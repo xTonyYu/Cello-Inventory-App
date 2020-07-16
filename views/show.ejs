@@ -3,6 +3,7 @@
 <head>
     <%- include('./_head.ejs') %>
     <link rel="stylesheet" href="/css/show.css">
+    <% const currencyStyle = { style: 'currency', currency: 'USD' } %>
     <title>Show Page</title>
 </head>
 <body>
@@ -16,7 +17,15 @@
                 <h3 class="card-body"><%= prodMaker.name %></h3>
                 <% for (let [key, value] of Object.entries(Product)) { %>
                     <% if (key !== 'description' && key !== 'photo' && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') { %>
-                        <p  class="card-body"><%= `${key}: ${value}` %> </p>
+                        <p  class="card-body">
+                            <% if (`${key}` === 'price' || `${key}` === 'cost') { %>
+                                <%= `${key}: ` %><%= Intl.NumberFormat('en-US', currencyStyle).format(value) %> 
+                            <% } else if (`${key}` === 'quantity') { %>
+                                <%= `${key}: ` %><%= Intl.NumberFormat('en-US').format(value) %> 
+                            <% } else { %>
+                                <%= `${key}: ${value}` %> 
+                            <% } %>
+                        </p>
                 <% }} %>   
 
                 <div class="btn-group" role="group" style="display: flex; justify-content: flex-end;">
