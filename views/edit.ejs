@@ -11,34 +11,36 @@
     </header>
     <main>
         <div>
-            <h2><%= prodType %></h2>
+            <div class="title form-head">
+            <h2 class="card border new-title"><%= prodType %></h2>
             <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
-                <a href="/maker/new?_priorProdType=<%= prodType %>"><button type="submit" class="btn btn-secondary bg-dark">Add New Maker</button></a>
+                <a href="/maker/new?_priorProdType=<%= prodType %>"><button type="submit" class="btn btn-secondary border new-maker">Add New Maker</button></a>
                 <br>
             <% } %>
+            </div>
             <form action="/<%= prodType %>/<%= Product._id %>?_priorProdType=<%= priorProdType %>&_method=PUT" method="POST">
                 <div class="form-group">
-                <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>    
-                    <div class="input-group mb-2">
-                        <label class="input-group-prepend" for="Maker">Maker</label>
-                        <select type="text" id="maker" name="makerId"> 
-                            <% for (let i = 0; i < makers.length; i++) { %>
-                                <option class="border input-group-text" value="<%= makers[i]._id %>"
-                                    <%= makers[i]._id.toString() === Product._id.toString() ? 'seleted': null %>
-                                ><%= makers[i].name %></option>
-                            <% } %>
-                        </select>
+                <% if (prodType !== 'accessories' && prodType !== 'maker' && prodType !== 'bow') { %>  
+                    <div class="maker-drop border">   
+                    <label for="Maker" class="maker-label">Maker</label>
+                    <select class="border" type="text" id="maker" name="makerId"> 
+                        <% for (let i = 0; i < makers.length; i++) { %>
+                            <option value="<%= makers[i]._id %>"
+                                <%= makers[i]._id.toString() === Product._id.toString() ? 'seleted': null %>
+                            ><%= makers[i].name %></option>
+                        <% } %>
+                    </select>
                     </div>
                     <br>        
                 <% } %>
                 <% for (let [key] of Object.entries(schema)) { %>
                     <% if (key !== 'products' && key !== 'bio') { %>
-                        <div class="input-group mb-2 border form-input">
-                            <label class="sr-only" for="<%= `${key}` %>"><%= `${key}: ` %></label>
-                            <div class="input-group-prepend">
+                        <div class="border form-line">
+                            <label class="form-label" for="<%= `${key}` %>"><%= `${key}: ` %></label>
+                            <!-- <div class="input-group-prepend">
                                 <div class="input-group-text"><%= `${key}: ` %></div>
-                            </div>
-                            <input type="text" class="form-control" name="<%= `${key}` %>" id="<%= `${key}` %>" value="<%= Product[key] %>">
+                            </div> -->
+                            <input type="text" class="border form-control" name="<%= `${key}` %>" id="<%= `${key}` %>" value="<%= Product[key] %>">
                         </div>
                     <% } else if (key === 'bio') { %>
                         <label for="<%= `${key}` %>"><%= `${key}: ` %></label>
@@ -47,7 +49,7 @@
                     <% } %>  
                 <% } %>  
             
-                <button type="submit" class="btn btn-secondary bg-dark submit">Submit</button>
+                <button type="submit" class="btn btn-secondary border submit tm-20">Submit</button>
             </div>
             </form>
         </div>

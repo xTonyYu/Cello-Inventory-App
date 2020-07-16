@@ -90,7 +90,7 @@ main {
 }
 .ind-name {
     padding: 0 10px 0 10px;
-    background-color: rgb(211, 211, 211);   
+    background-color: rgb(250, 245, 245);    
     margin: 0
 }
 .card-body {
@@ -230,4 +230,9 @@ footer {
 }
 .wcf {
     width: fit-content;
+}
+.disflex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
