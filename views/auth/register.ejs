@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../_head.ejs') %>
+
+    <title>Register Page</title>
+</head>
+<body>
+    <header>
+        <%- include('../_header.ejs') %>
+    </header>
+    <main>
+        <div>
+            <h2>Register</h2>
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <div class="input-group mb-2 border">
+                        <label class="sr-only" for="name">Name</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Name</div>
+                        </div>
+                        <input type="text" class="form-control" name="name" id="name">
+                        <br>
+                    </div>
+                    <div class="input-group mb-2 border">
+                        <label class="sr-only" for="email">Email</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Email</div>
+                        </div>
+                        <input type="email" class="form-control" name="email" id="email">
+                        <br>
+                    </div>
+                    <div class="input-group mb-2 border">
+                        <label class="sr-only" for="password">Password</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Password</div>
+                        </div>
+                        <input type="password" class="form-control" name="password" id="password">
+                        <br>
+                    </div>
+                <button type="submit" class="btn btn-secondary bg-dark submit">Register</button>
+            </div>
+            </form>
+        </div>
+    </main>
+<%- include("../_footer.ejs") %> 
+    
+</body>
+</html>

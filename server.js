@@ -1,5 +1,6 @@
 const express = require('express');
 const methodOverride = require('method-override')
+const session = require('express-session');
 const db = require('./models')
 
 const app = express();
@@ -11,6 +12,8 @@ const minimumProdTypes = ['cello', 'violin', 'bow', 'accessories', 'sales']
 const prodController = require('./controllers/prodController')
 const dashboardController = require('./controllers/dashboardController')
 const makerController = require('./controllers/makerController')
+const authController = require('./controllers/authController');
+// const emplyController = require('./controllers/emplyController');
 
 app.set('view engine', 'ejs');
 
@@ -25,7 +28,8 @@ app.use(methodOverride('_method'));
 app.get(['/', '/home'], (req, res) => {
     res.redirect('/dashboard');
 })
-
+// Auth Routes
+app.use('/', authController);
 
 // ******------------ Rerouting -----------******* /
 app.use('/dashboard', dashboardController)
