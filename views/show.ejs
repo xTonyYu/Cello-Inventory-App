@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./head.ejs') %>
+    <%- include('./_head.ejs') %>
     <link rel="stylesheet" href="/css/show.css">
     <title>Show Page</title>
 </head>
 <body>
     <header>
-        <%- include('./header.ejs') %> 
+        <%- include('./_header.ejs') %> 
     </header>
     <main>
         <section class="container">
@@ -34,6 +34,7 @@
             <% } %>
         </section>
     </main>
+<%- include("./_footer.ejs") %> 
     
 </body>
 </html>

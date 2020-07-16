@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./head.ejs') %>
+    <%- include('./_head.ejs') %>
     <link rel="stylesheet" href="/css/index.css">
     <% const currencyStyle = { style: 'currency', currency: 'USD' } %>
     <title><%= prodType %> Index</title>
 </head>
 <body>
     <header>
-        <%- include('./header.ejs') %>
+        <%- include('./_header.ejs') %>
     </header>
     <main>
         <section class="products">
@@ -53,5 +53,7 @@
             <% }) %>
         </section>
     </main>
+<%- include("./_footer.ejs") %> 
+
 </body>
 </html>
