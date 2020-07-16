@@ -28,7 +28,7 @@ const dataCellos = [{
     description: `Known as the ‘Vatican Stradivari’, this decorated instrument by Nicolo Amati was recently sold through Tarisio Private Sales. Originally made as a six string viol, this instrument was converted in the 19th century to a cello of modern proportions. The cello bears a repair inscription from Georges Chanot of Paris from 1863 and the painted garland, angels, sea creatures, fleur-de-lys, papal mitre and coat of arms presumably date from this same period.
 
     The buyer is a philanthropist whose foundation loans fine instruments to up-and-coming young musicians.`,
-    photo: 'https://zacatecasonline.com.mx/images/nacional/2014/noviembre/21notas/stradivarius-vaticano.jpg'
+    photo: '/images/stradivarius-vaticano.jpg'
 },
 {
     // maker: 'Andrea Guarneri (1626 - 1698)',

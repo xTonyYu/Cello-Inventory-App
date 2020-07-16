@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <%- include('./head.ejs') %>
+    <link rel="stylesheet" href="/css/show.css">
     <title>Show Page</title>
 </head>
 <body>
@@ -13,25 +10,29 @@
         <%- include('./header.ejs') %> 
     </header>
     <main>
-        <div class="card" style="width: 25%;">
-            <h3 class="card-body" style="display: flex; flex-wrap: wrap;"><%= prodMaker.name %></h3>
-            <% for (let [key, value] of Object.entries(Product)) { %>
-                <% if (key !== 'description' && key !== 'photo' && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') { %>
-                    <p  class="card-body" style="height: 20px; padding: 0%; margin: 3px;"><%= `${key}: ${value}` %> </p>
-            <% }} %>   
+        <section class="container">
+            
+            <div class="card">
+                <h3 class="card-body"><%= prodMaker.name %></h3>
+                <% for (let [key, value] of Object.entries(Product)) { %>
+                    <% if (key !== 'description' && key !== 'photo' && key !== '_id' && key !== '__v' && key !== 'createdAt' && key !== 'updatedAt') { %>
+                        <p  class="card-body"><%= `${key}: ${value}` %> </p>
+                <% }} %>   
 
-            <div class="btn-group" role="group" style="display: flex; justify-content: flex-end;">
-                <a href="/<%= prodType %>/<%= Product._id %>/edit">
-                    <button type="button" class="btn btn-secondary">Edit</button>
-                </a>
-                <form action="/<%= prodType %>/<%= Product._id %>?_method=DELETE" method="POST">
-                    <button type="submit" type="button" class="btn btn-secondary" style="background-color: rgba(150, 7, 7, 0.925);">Delete</button>
-                </form>
+                <div class="btn-group" role="group" style="display: flex; justify-content: flex-end;">
+                    <a href="/<%= prodType %>/<%= Product._id %>/edit">
+                        <button type="button" class="btn btn-secondary">Edit</button>
+                    </a>
+                    <form action="/<%= prodType %>/<%= Product._id %>?_method=DELETE" method="POST">
+                        <button type="submit" type="button" class="btn btn-secondary" style="background-color: rgba(150, 7, 7, 0.925);">Delete</button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div><img src="<%= Product.photo %>"></div>
-        <div>logs of events related to this product</div>
-        <div><%= Product.description %></div>
+            <div ><img src="<%= Product.photo %> " class="show-photo"></div>
+            <% if (Product.description) { %>
+                <div class="description"><%= Product.description %></div>
+            <% } %>
+        </section>
     </main>
     
 </body>

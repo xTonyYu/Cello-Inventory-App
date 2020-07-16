@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/index.css">
+    <%- include('./head.ejs') %>
+    <link rel="stylesheet" href="/css/index.css">
     <% const currencyStyle = { style: 'currency', currency: 'USD' } %>
-    
     <title><%= prodType %> Index</title>
 </head>
-<body style="background-image: url('/images/cello1.jpg');">
+<body>
     <header>
         <%- include('./header.ejs') %>
     </header>
     <main>
         <section class="products">
-            <img src="" alt="" sizes="width: 100px" srcset=""><div>generic product type image placeholder</div>
             <div class="title">
                 <h2><%= prodType %></h2>
-                <a href="/<%= prodType %>/new">
-                    <button type="button" class="btn btn-secondary">Add new</button>
-                </a>
+                <% if (prodType !== 'sales') { %> 
+                    <a href="/<%= prodType %>/new">
+                        <button type="button" class="btn btn-secondary">Add new</button>
+                    </a>
+                <% } else { %>
+                    <h3> - Demo Only - future module to be build</h3>
+                <% } %>
             </div>
             <% products.forEach(product=> { %>
                 <div class="table-row">
