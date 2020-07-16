@@ -1,0 +1,35 @@
+/* Show page */
+
+.container {
+    display: flex;
+    justify-content: center;
+    max-width: 70vw;
+    flex-wrap: wrap;
+}
+
+.card,
+.show-card,
+.show-photo {
+    width: 100%;
+    margin: 5px;
+    background-color: rgb(250, 245, 245);   
+}
+.description {
+    margin: 5px 5px 70px 5px;
+    width: 100%;
+}
+.show-photo {
+    box-shadow: 4px 4px 3px;
+}
+.card-body {
+    padding: 2px 15px;
+    margin: 0;
+}
+
+.btn-group {
+    margin: 0 10px 5px 0;
+    padding: 3px;
+}
+.btn {
+    margin: 2px;
+}

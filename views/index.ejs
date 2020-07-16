@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Index</title>
+    <%- include('./_head.ejs') %>
+    <%- include('./_gogglechart.ejs') %>
+
+    <link rel="stylesheet" href="/css/index.css">
+    <% const currencyStyle = { style: 'currency', currency: 'USD' } %>
+    <title><%= prodType %> Index</title>
 </head>
 <body>
     <header>
-        <%- include('./header.ejs') %>
+        <%- include('./_header.ejs') %>
+
     </header>
     <main>
         <section class="products">
-            <h2><%= producttype %></h2>
-            <div>generic product type image place holder</div>
-            <table class="product-table">
-                <tr class="table-heading">
-                    <th class="table-column name-column">Name</th>
-                    <th class="table-column status-column">Status</th>
-                    <th class="table-column qty-column">Quantity</th>
-                    <th class="table-column price-column">Price</th>
-                    <th class="table-column cost-column">Cost</th>
-                    <th class="table-column edit-column"></th>
-                    <th class="table-column delete-column"></th>
-                </tr>
-                <tr class="table-row">
-                    <% products.forEach(product=> { %>
-                        <td class="clickable-row" data-href="/<%= producttype %>/<%= product._id %>">
-                            <% if (producttype !== "accessories") { %>
-                                <%= product.maker.name %> <%= product.year %> <br>
-                                <%= product.title %>
-                            <% } else { %>
-                                <%= product.name %>
-                            <% } %>
-                        </td>
-                        <td><%= product.status %></td>
-                        <td><%= product.quantity %></td>
-                        <td><%= product.price %></td>
-                        <td><%= product.cost %></td>
-                        <td>
-                            <form action="/<%= producttype %>/<%= product._id %>/edit" method="GET">
-                                <button type="submit">Update</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/<%= producttype %>/<%= product._id %>$_method=DELETE" method="POST">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    <% }) %>
-                </tr>
-            </table>
+            <div class="title">
+                <div class="card ind-name border">
+                    <h2><%= prodType %></h2>
+                </div>
+                <% if (prodType !== 'sales') { %> 
+                    <a href="/<%= prodType %>/new">
+                        <button type="button" class="btn btn-secondary border">Add new</button>
+                    </a>
+                <% } else { %>
+                    <h3> - Demo Only - future module to be build</h3>
+                <% } %>
+            </div>
+            <!-- Goggle chart -->
+            <div class="table-row border" id="chart_div"></div>
+            
+            <% products.forEach(product=> { %>
+                <div class="table-row border">
+                    <div class="table-cell row-name" data-href="/<%= prodType %>/<%= product._id %>">
+                        <% if (prodType !== "accessories") { %>
+                            <%= product.maker.name %> <%= product.year %> <br>
+                            <%= product.title %>
+                        <% } else { %>
+                            <%= product.name %>
+                        <% } %>
+                        </div>
+                    <div class="table-cell row-status"><%= product.status %></div>
+                    <div class="table-cell row-quantity">Qty: <%= Intl.NumberFormat('en-US').format(product.quantity) %></div>
+                    <div class="tabl-cell row-price-cost">
+                        <div class="table-cell row-price">Price: <br><%= Intl.NumberFormat('en-US', currencyStyle).format(product.price) %></div>
+                        <div class="table-cell row-cost">Cost: <br><%= Intl.NumberFormat('en-US', currencyStyle).format(product.cost) %></div>
+                    </div>
+                    <div class="table-cell btn-group row-action" role="group" aria-label="Basic example">
+                        <form action="/<%= prodType %>/<%= product._id %>" method="GET">
+                            <button type="submit" type="button" class="btn btn-secondary btn-left">Detail</button>
+                        </form>
+                        <form action="/<%= prodType %>/<%= product._id %>/edit" method="GET">
+                            <button type="submit" type="button" class="btn btn-secondary btn-right">Update</button>
+                        </form>
+                        <form action="/<%= prodType %>/<%= product._id %>?_method=DELETE" method="POST">
+                            <button type="submit" type="button" class="btn btn-secondary delete-btn">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
         </section>
     </main>
+<%- include("./_footer.ejs") %> 
+
 </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../_head.ejs') %>
+
+    <title>Login Page</title>
+</head>
+<body>
+    <header>
+        <%- include('../_header.ejs') %>
+    </header>
+    <main>
+        <div>
+            <h2 class="card border new-title wcf">Login</h2>
+            <h3><%= msg %></h3>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <div class="border form-line">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" class="border form-control" name="email" id="email">
+                        <br>
+                    </div>
+                    <div class="border form-line">
+                        <label class="form-label" for="password">Password</label>
+
+                        <!-- <div class="input-group-text">Password</div> -->
+
+                        <input type="password" class="border form-control" name="password" id="password">
+                        <br>
+                    </div>
+                <button type="submit" class="btn btn-secondary submit border tm-20">Login</button>
+            </div>
+            </form>
+
+            <div class="card dashcard border" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">Use below info for Testing</h3>
+                    <p>Email: testing@now.com</p>
+                    <p>Password: 1234</p>
+                </div>
+            </div>
+        </div>
+    </main>
+<%- include("../_footer.ejs") %> 
+    
+</body>
+</html>

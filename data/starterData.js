@@ -13,7 +13,7 @@ const dataCellos = [{
 
     Upon her death in 1987, the Davidov, owned by Moët Hennessy Louis Vuitton, was made available for use by Yo-Yo Ma. He has since performed and recorded with the instrument in Baroque music, specifically, the Simply Baroque and Simply Baroque II recordings. It was modified especially for the task of creating a more authentic sound for that era. The Davidov has subsequently been reconfigured for modern music.'`,
 
-    photo: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.slideshare.net%2Flearningnight%2Fwhy-steal-a-violin&psig=AOvVaw0r8Tdh1jSGC1-773KqAVGz&ust=1594503291722000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOC_2-fRw-oCFQAAAAAdAAAAABAD'
+    photo: 'https://ae01.alicdn.com/kf/Hbf03e6b3d4294b90824e6e9e5f6d41b88.jpg_q50.jpg'
 },
 {
     // maker: 'Antonio Stradivari (1644 - 1737)',
@@ -28,7 +28,7 @@ const dataCellos = [{
     description: `Known as the ‘Vatican Stradivari’, this decorated instrument by Nicolo Amati was recently sold through Tarisio Private Sales. Originally made as a six string viol, this instrument was converted in the 19th century to a cello of modern proportions. The cello bears a repair inscription from Georges Chanot of Paris from 1863 and the painted garland, angels, sea creatures, fleur-de-lys, papal mitre and coat of arms presumably date from this same period.
 
     The buyer is a philanthropist whose foundation loans fine instruments to up-and-coming young musicians.`,
-    photo: 'https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.archiviodellaliuteriacremonese.it%2Fen%2Fstrumenti%2F1620_cello_vatican.aspx&psig=AOvVaw1PPqsxsai-cygzvtpODX6a&ust=1594504686579000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNj7wv_Ww-oCFQAAAAAdAAAAABAH'
+    photo: '/images/stradivarius-vaticano.jpg'
 },
 {
     // maker: 'Andrea Guarneri (1626 - 1698)',
@@ -36,14 +36,14 @@ const dataCellos = [{
     year: 1740,
     price: 4000000,
     cost: 1500000,
-    status: 'repairs',
+    status: 'repair',
     type: 'cello',
     quantity: 1,
     players: ['David Popper'],
     
     description: `The earliest Andrea Guarneri violins unsurprisingly closely resembled the Amati style with rounded 'bouts and slender corners whose looser curves end with a slight flat. It appears that he simply continued to use the same moulds that he had in his master's workshop. The arching height is moderate with graceful fluting and the f-holes are quite Amatian, though with the upper eyes tending to be slightly too close together. As the years went on more and more characteristic features of Guarneri's work distinguished themselves. His arching tends toward fullness, and the mitres of his purfling often turning rather abruptly at the corners. The scroll was generally relatively small, without clearly defined chamfers and with shallower volutes than was typical of his teacher. He left the back plate quite thick in the centre, thinning it towards the edges, and the table of consistent thickness, though there seems to be no desire to obtain perfect accuracy in the thickening. The maple used seems to be of local origin and often fairly plain figure.`,
 
-    photo: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bromptons.co%2Freference%2Farticles%2Fdetails%2Fandrea-guarneri.html&psig=AOvVaw3gIn1qgdY5qtkeSpJujN3F&ust=1594504919435000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMi7__TXw-oCFQAAAAAdAAAAABAD'
+    photo: 'https://tarisio.com/content/uploads/2014/12/40418_c29_Plowden-1000w-e1418811967833.jpg'
 },
 {
     // maker: 'Andrea Amati (1505 - 1577)',
@@ -53,10 +53,39 @@ const dataCellos = [{
     cost: 200000,
     status: 'in stock',
     type: 'cello',
+    quantity: 1,
     players: 'Charles IX, King of France',
     description: 'The cello pictured here is called "The King," and is historically the most famous of all cellos. It was exhibited in 1968 at the Rockefeller University for the Conference on Scientific Aspects of Musical Instruments with the following information: "Violoncello by Andrea Amati, Cremona, not after 1574, body length 75.5 cm (reduced from larger dimensions). Neck and fittings modern. Painted and gilded with the arms, devices, and mottoes of Charles IX, King of France. Label probably a facsimile, dated 1572." Charles IX of France had ordered 38 instruments from Andrea Amati, including 8 "basses," and this instrument is thought to be one of them. The paintings are on the back and the sides, and there are decorations on the peg box as well (the peg box and scroll on this cello are original). On the centre of the back can be seen a crown over the remaining outline of the royal coat of arms, on either side of which is a figure. To the right is a figure of a woman and further to the right, a column, with a crown on top, and still another crown near the bottom of the instrument. On the left side, the figure is no longer visible, and only a portion of the column remains. The figures stand for Piety and Justice. The voice of this cello is remarkable. It possesses a beautiful, full-throated sound, vigorous enought to be heard in a concerto. The cello is basically the same as a modern cello, although it has been cut down. In every other respect than size, Andrea Amati made cellos as they are known today. For 200 years Andrea Amati and his descendents made these wonderful instruments.',
     photo: 'https://www.metmuseum.org/-/media/images/blogs/musical-instruments/2015/amati-cello-details/1.jpg?la=en'
-}]
+},
+{
+    title: 'W. Seifert Fine Pernambuco Cello Bow',
+    price: 945,
+    cost: 250,
+    status: 'in stock',
+    type: 'bow',
+    quantity: 8,
+    photo: 'https://cdn.shopify.com/s/files/1/2966/4646/products/130c_800x.jpg?v=1538070025',
+},
+{
+    title: 'Hofner Electric Violin AS-160E-V',
+    price: 2595,
+    cost: 850,
+    status: 'in stock',
+    type: 'violin',
+    quantity: 3,
+    photo: 'https://elcoda.com/images/super/hofner-electric-violin-as-160e-v-1.jpg',
+},
+{
+    title: 'Test Cello',
+    price: 200,
+    cost: 50,
+    status: 'in stock',
+    type: 'cello',
+    quantity: 3,
+    photo: 'https://www.metmuseum.org/-/media/images/blogs/musical-instruments/2015/amati-cello-details/1.jpg?la=en',
+},
+]
 
 const dataAccessories = [{
         name: 'Hightech Supreme POLYCARBONATE',
@@ -67,7 +96,6 @@ const dataAccessories = [{
         type: 'case',
         photo: 'https://cdn.shopify.com/s/files/1/2787/8120/products/sup1005xlnnfront__030181800_1737_25012018_666fc7a5-4396-4a21-9982-691414294267_1024x1024@2x.png?v=1523978518',
         forInstrument: ['cello'],
-        timeStamp
     },
     {
         name: 'Leatherwood Bespoke Cello Rosin Supple Recipe',
@@ -78,18 +106,6 @@ const dataAccessories = [{
         type: 'rosin',
         photo: 'https://cdn.shopify.com/s/files/1/2966/4646/products/Leatherwood6_85b95b1d-c505-41e0-bca9-4e5658d4eab3.JPG?v=1550255806',
         forInstrument: ['cello'],
-        timeStamp
-    },
-    {
-        name: 'W. Seifert Fine Pernambuco Cello Bow',
-        brand: 'W. Seifert',
-        price: 945,
-        cost: 250,
-        quantity: 8,
-        type: 'bow',
-        photo: 'https://cdn.shopify.com/s/files/1/2966/4646/products/130c_800x.jpg?v=1538070025',
-        forInstrument: ['cello'],
-        timeStamp
     },
     {
         name: 'GFW-MUS-0500 Lightweight Sheet Music Stand',
@@ -100,7 +116,6 @@ const dataAccessories = [{
         type: 'musicStand',
         photo: 'https://images.monoprice.com/productlargeimages/6024101.jpg',
         forInstrument: ['all'],
-        timeStamp
     }
 
 ]
@@ -108,7 +123,7 @@ const dataAccessories = [{
 const dataMakers = [
     {
         name: 'Antonio Stradivari (1644 - 1737)',
-        description: `Antonio Stradivari (/ˌstrædɪˈvɑːri/, also US: /-ˈvɛəri/,[2][3][4] Italian: [anˈtɔːnjo stradiˈvaːri]; 1644 – 18 December 1737) was an Italian luthier and a craftsman of string instruments such as violins, cellos, guitars, violas and harps.[5] The Latinized form of his surname, Stradivarius, as well as the colloquial Strad are terms often used to refer to his instruments. It is estimated that Stradivari produced 1,116 instruments, of which 960 were violins. Around 650 instruments survived, including 450 to 512 violins. Early career
+        bio: `Antonio Stradivari (/ˌstrædɪˈvɑːri/, also US: /-ˈvɛəri/,[2][3][4] Italian: [anˈtɔːnjo stradiˈvaːri]; 1644 – 18 December 1737) was an Italian luthier and a craftsman of string instruments such as violins, cellos, guitars, violas and harps.[5] The Latinized form of his surname, Stradivarius, as well as the colloquial Strad are terms often used to refer to his instruments. It is estimated that Stradivari produced 1,116 instruments, of which 960 were violins. Around 650 instruments survived, including 450 to 512 violins. Early career
         Stradivari probably developed his own style slowly. Some of his early violins were smaller, with notable exception to this is the 1679 Hellier violin, which had much larger proportions.[33] Stradivari's early (pre-1684) violins are in strong contrast to Amati's instruments from the same time period; Stradivari's have a stronger, more masculine build, and less rounded curves, with the purfling set farther in.[34][35]
         
         By 1680, Stradivari had acquired at least a small, yet growing, reputation. In 1682, a Venetian banker ordered a complete set of instruments, which he planned to present to King James II of England.[36] The fate of these instruments is unknown. Cosimo III de' Medici bought another five years later.[37] Amati died in 1684, an event followed by a noticeable increase in Stradivari's production.[36] The years 1684 and 1685 also marked an important development in his style—the dimensions he used generally increased, and his instruments were more in the style of Amati's work of the 1640s and 1650s.[38] Stradivari's instruments underwent no major change in the next five years,[39] although in 1688 he began cutting a more distinct bevel and began outlining the heads of instruments in black, a quite original improvement.[40]
@@ -125,13 +140,13 @@ const dataMakers = [
     {
         name: 'Andrea Amati (1505 - 1577)',
         
-        description: `Andrea Amati was a luthier, from Cremona, Italy.[1][2] Amati is credited with making the first instruments of the violin family that are in the form we use today.[3] Several of his instruments survive to the present day, and some of them can still be played.[3][4][5] Many of the surviving instruments were among a consignment of 38 instruments delivered to Charles IX of France in 1564. <br>Charles IX of France<br> It is estimated that Amati made some 38 instruments between 1560 and 1574 for the Queen Regent of France Catherine de Medici on behalf of her young son, Charles IX of France; one of these was a gilded bass violin, elaborately painted with royal symbols, called The King. There is some uncertainty about the exact date the instrument was crafted; The King's "label" gives the date as 1572, but some scholars have proposed an earlier date. Much of the collection was destroyed during the French Revolution but some pieces were recovered by Giovanni Battista Viotti's student M. J. B. Cartier. It then changed hands several times, first being acquired by the Duport brothers, Jean-Pierre and Jean-Louis. According to the instrument's documentation it was then purchased from Rembert Wurlitzer Co. in 1967 by Lawrence Witten.[7] The King is currently part of the collection at the National Music Museum in Vermillion, South Dakota.[8]`,
+        bio: `Andrea Amati was a luthier, from Cremona, Italy.[1][2] Amati is credited with making the first instruments of the violin family that are in the form we use today.[3] Several of his instruments survive to the present day, and some of them can still be played.[3][4][5] Many of the surviving instruments were among a consignment of 38 instruments delivered to Charles IX of France in 1564. <br>Charles IX of France<br> It is estimated that Amati made some 38 instruments between 1560 and 1574 for the Queen Regent of France Catherine de Medici on behalf of her young son, Charles IX of France; one of these was a gilded bass violin, elaborately painted with royal symbols, called The King. There is some uncertainty about the exact date the instrument was crafted; The King's "label" gives the date as 1572, but some scholars have proposed an earlier date. Much of the collection was destroyed during the French Revolution but some pieces were recovered by Giovanni Battista Viotti's student M. J. B. Cartier. It then changed hands several times, first being acquired by the Duport brothers, Jean-Pierre and Jean-Louis. According to the instrument's documentation it was then purchased from Rembert Wurlitzer Co. in 1967 by Lawrence Witten.[7] The King is currently part of the collection at the National Music Museum in Vermillion, South Dakota.[8]`,
         
         photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Ex_%22Kurtz%22_Violin_MET_DP302645.jpg/220px-Ex_%22Kurtz%22_Violin_MET_DP302645.jpg'
     },
     {
         name: 'Andrea Guarneri (1626 - 1698)',
-        description: `Andrea Guarneri (b.1626; d.1698, in Cremona) was an Italian luthier, musician and founder of the Casa Guarneri. He is the most important student of Nicola Amati and grandfather of one of the best luthiers, Bartolomeo Giuseppe Guarneri, del Gesù.[1] Biography
+        bio: `Andrea Guarneri (b.1626; d.1698, in Cremona) was an Italian luthier, musician and founder of the Casa Guarneri. He is the most important student of Nicola Amati and grandfather of one of the best luthiers, Bartolomeo Giuseppe Guarneri, del Gesù.[1] Biography
         Thought to be born in 1626 to Bartolomo Guarneri in the parish of Cremona, Italy, very little is known about Andrea Guarneri's family of origin.[3] There are records of a wood-carver by the name of Giovanni Battista Guerine, which may have been an alternative spelling of Guarneri, living near the residence of Nicolò Amati in Cremona in 1632, to whom he may have been related. By 1641 the young Andrea was living with Nicolò Amati and being instructed in the art of violin making, probably working alongside Francesco Ruggieri and Antonio Stradivari who were also an apprentices at the same time.[4] In 1652, while still living in the Amati household, Andrea married Anna Maria Orcelli, daughter of Orazio Orcelli. The young Guarneri family finally left the Amati household in 1654, with Andrea probably removing himself from Amati's workshop and patronage at that time. They moved to the house of Guarneri's father-in-law, the Casa Orcelli, which eventually became the Casa Guarneri. Anna Maria soon bore a daughter, Angela Teresa, followed just over a year later by a son, Pietro Giovanni, who was eventually to carry on his father's violin making. In 1655 we have the first proof that Andrea had definitively left Amati's workshop, in the form of a label in a violin dated 1655, which says "ex Allumnis Nicolai Amati". In all previous labels "Alumnus" was written without the prefix "ex". However, it is thought that even quite some time after both Andrea Guarneri and Francesco Ruggieri left Amati's workshop they occasionally made entire instruments for their former master, which bear the Amati label.
         
         By the mid-1660s Andrea and Anna Maria had had two more sons, Eusebio Amati, born in 1658, and Giovanni Battista in 1666. Despite their third son Eusebio's namesake, and probably his god-parent, he was the only son not to follow in his father's footsteps as a violin maker. No further information on Eusebio is available. By evidence in the workmanship of his violins, it is thought that by 1670 or 1675 at least his eldest son Pietro Giovanni (later known as Pietro of Mantua), was making his presence known in the Guarneri workshop. Some of the instruments become lighter, and show a Stradivarian influence. Eventually entire instruments appear to be made by Pietro Giovanni's hand, though they contain the original Andrea Guarneri label. But the cooperation between father and son was short-lived. In 1679, at the age of 24 Pietro's name appears for the last time in the census at his father's house. He soon moved to Mantua and became successful in his own right.[5]
@@ -147,6 +162,8 @@ const dataMakers = [
         photo: 'https://3.bp.blogspot.com/-iEvKmnttiW0/WJHu1GaLzbI/AAAAAAAANqU/RGrrAXmzuS4idlMwHRBLcl8j8Gi37uskgCK4B/w1200-h630-p-k-no-nu/Guarneri.jpg'
     }
 ]
+
+module.exports = {dataCellos, dataAccessories, dataMakers}
 
 // type: mongoose.Schema.Types.ObjectId,
 // ref: 'Maker'

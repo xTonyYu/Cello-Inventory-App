@@ -49,7 +49,7 @@ Enhancements
 
 Technology
 
-* Express, MongoDB, Mongoose, Javascript, HTML, CSS
+* Express, MongoDB, Mongoose, Javascript, HTML, CSS, Node.js, Bootstrap
 
 Wireframes
 

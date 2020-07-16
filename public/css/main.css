@@ -1,3 +1,249 @@
+* {
+    box-sizing: border-box;
+}
 body {
-    background-color: cadetblue;
+    background-image: url('/images/iwN3lBU.png');
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    background-size: cover;
+}
+
+
+/* header */
+.carousel-item {
+    height: 200px;
+}
+.d-block {
+    vertical-align: bottom;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+.navbar {
+    box-shadow: 0px 3px 2px;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin: 0 0 15px 0;
+    padding: 5px 0 5px 0;
+}
+.navbutt {
+    border: 1px solid black;
+}
+div .container {
+    margin: 0 0 0 0;
+}
+
+/* footer */
+/* footer {
+    border-radius: 10px 10px 0 0;
+    color: lightgray;
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    justify-content: center;
+    height: 42px;
+}
+.footer-div {
+    margin: 0 3px 0 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.about-us {
+    display: flex;
+    height: 50px;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 60px 0;
+} */
+.delete-btn {
+    background-color: rgba(117, 5, 5, 0.925);
+}
+
+/* main */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0 60px 0;
+    width: 80vw;
+    height: 100%;
+    margin-bottom: 50px;
+}
+
+
+/* Dashboard */
+#dashboard {
+    width: 80vw;
+}
+.dashcard {
+    background-color: rgb(250, 245, 245);   
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4px;
+    position: relative;
+    margin: 5px;
+}
+.ind-name {
+    padding: 0 10px 0 10px;
+    background-color: rgb(250, 245, 245);    
+    margin: 0
+}
+.card-body {
+    padding: 15px 15px 50px 15px;
+}
+.card-body p {
+    display: block;
+    margin-bottom: 10px;
+}
+.dash-btn-grp {
+    padding: 0;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    display: flex; 
+    justify-self: flex-end;
+}
+
+/* forms */
+form {
+    display: flex;
+    justify-content: center;
+}
+.form-head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    position: relative;
+}
+.form-group {
+    width: 60vw;
+    display: block;
+    justify-content: center;  
+}
+.form-control {
+    width: 100%;
+}
+.form-line {
+    display: flex;
+    margin-top: 20px;
+    background-color: rgb(106, 115, 123);
+}
+.form-label {
+    padding: 4px 5px 0 6px;
+}
+.input-group {
+    margin: 15px 0;;
+}
+.form-group label {
+    color: whitesmoke;
+}
+#maker {
+    height: 38px;
+}
+.submit {
+    float: right;
+}
+.new-maker {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+.maker-drop {
+    background-color: rgb(106, 115, 123);
+    height: fit-content;
+    width: fit-content;
+    padding: 0 0 0 5px;
+    margin-top: 20px;
+}
+.new-title {
+    padding: 5px 10px 5px 10px;
+}
+
+/* footer */
+footer {
+    border-radius: 10px 10px 0 0;
+    color: rgb(250, 245, 245);   
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgb(87, 96, 104);
+}
+.footer-div {
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-width: 50px; */
+    height: 100%;
+}
+.about-us {
+    display: flex;
+    height: 50px;
+    padding: 3px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+.tony h4 {
+    padding: 0 10px 0 5px;
+    border-right: 1px solid rgb(165, 165, 165);
+}
+.about-us a { 
+    color: inherit; 
+} 
+.luci h4 {
+    padding: 0 5px 0 5px;
+}
+
+/* universal classes */
+.gray-bg {
+    background-color: rgb(52, 58, 64);
+}
+.lk-rm {
+    color: black;
+}
+.txt-sl {
+    color: lightgray;
+}
+.border {
+    box-shadow: 4px 4px 3px rgb(52, 58, 64);
+    border-radius: 10px;
+    border: 0px !important;
+}
+.btn-left {
+    border-radius: 4px 0 0 4px;
+}
+.btn-right {
+    border-radius: 0 4px 4px 0;
+    margin-right: 3px;
+}
+.tm-20 {
+    margin-top: 20px;
+}
+.wcf {
+    width: fit-content;
+}
+.disflex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.reg-title {
+    width: 140px;
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 4px;
 }

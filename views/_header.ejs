@@ -1,0 +1,52 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/images/homebox3.jpg" class="d-block w-100 data-interval='2000'" style="vertical-align:middle" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/photo1.jpeg" class="d-block w-100 data-interval='2000'" style="vertical-align:middle" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/cello1.jpeg" class="d-block w-100 data-interval='2000'" style="vertical-align:middle" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/photo2.jpeg" class="d-block w-100 data-interval='2000'" style="vertical-align:middle" alt="...">
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container d-flex justify-content-center">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link txt-sl active" href="/dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link txt-sl" href="/cello">Cellos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link txt-sl" href="/violin">Violins</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link txt-sl" href="/accessories">Accesories</a>
+            </li>
+            <% const showButton = false %>
+            <% if (showButton) { %>
+            <li class="nav-item txt-sl">
+                <a class="nav-link txt-sl" href="/sales">Sales</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link txt-sl" href="/login">Login</a>
+            </li>
+            <% } %>
+            <li class="nav-item">
+                <a class="nav-link txt-sl" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <form action="/logout?_method=DELETE" method="POST" class="nav-link txt-sl">
+                    <button class="border" type="submit">Logout</button> 
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
