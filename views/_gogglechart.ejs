@@ -13,7 +13,7 @@
         const products = <%- JSON.stringify(products) %>;
         const prodType = <%- JSON.stringify(prodType) %>;
         const maker = <%- JSON.stringify(prodType) %>;
-        console.log(products)
+
         let prodData = new Array();
         products.forEach((product, i)=> { 
             let dataPair = []
@@ -26,7 +26,6 @@
                 dataPair.push(product.price * product.quantity)
             }
             prodData.push(dataPair)
-            console.dir(prodData)
         })
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
