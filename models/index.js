@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const MONGODB_URI = 'mongodb://localhost:27017/celloShop';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/celloShop';
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
@@ -12,7 +12,7 @@ mongoose.connect(MONGODB_URI, {
 
 module.exports = {
   Product: require('./products'),
-  Accesory: require('./accessories'),
+  Accessory: require('./accessories'),
   Maker: require('./makers'),
   Employee: require('./employees')
 };

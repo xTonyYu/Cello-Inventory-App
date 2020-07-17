@@ -3,12 +3,18 @@ const db = require('../models');
 
 const router = express.Router()
 
+let prodType, model, schema;
+const getProdRelatedInfo = function getProdRelatedInfo(req, res, next) {
+    prodType = req.productType
+    // below set the fetching of the data based on prodType
+    model = prodType !== 'accessories' ? db.Product : db.Accessory;
+    schema = prodType !== 'accessories' ? db.Product.schema.obj : db.Accessory.schema.obj;
+    next()
+}
 
 // ******------------ POST Route (CREATE) -----------******* //
 // get add new form page
-router.get('/new', (req, res) => {
-    const prodType = req.productType;
-    const schema = prodType !== 'accessories' ? db.Product.schema.obj : db.Accesory.schema.obj;
+router.get('/new', getProdRelatedInfo, (req, res) => {
     // in case the form needs to display Maker info
     db.Maker.find((err, makers) => {
         if (err) console.log(err)
@@ -22,11 +28,9 @@ router.get('/new', (req, res) => {
 });
 
 // create data
-router.post('/', (req, res) => {
-    const prodType = req.productType;
-    //  update corresponding collections based on req.productType
-    // below set the model to post data
-    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
+router.post('/', getProdRelatedInfo, (req, res) => {
+    // update corresponding collections based on req.productType
+    // below sets the model to post data
     model.create(req.body, (err, newData) => {
         if (err) console.log(err)
         // only product need to also link to maker
@@ -46,9 +50,6 @@ router.post('/', (req, res) => {
 
 // ******------------ GET Route (READ) -----------******* //
 const fetchingIndexData = (req, res, next) => {
-    const prodType = req.productType;
-    // below set the fetching of the data based on prodType
-    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
     model.find((err, allData) => {
         if (err) console.log(err)
         let dataResult = [];
@@ -76,7 +77,7 @@ const fetchingIndexData = (req, res, next) => {
 }
 
 // Get route for product index page
-router.get('/', fetchingIndexData, (req, res) => {
+router.get('/', getProdRelatedInfo, fetchingIndexData, (req, res) => {
     res.render('index', {
         prodType: req.productType,
         products: req.dataResult,
@@ -84,9 +85,7 @@ router.get('/', fetchingIndexData, (req, res) => {
 })
 
 // get detail SHOW page
-router.get('/:id', (req, res) => {
-    const prodType = req.productType;
-    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
+router.get('/:id', getProdRelatedInfo, (req, res) => {
     model.findById(req.params.id, (err, foundProduct) => {
         if (err) console.log(err)
         if (prodType !== 'accessories' && prodType !== 'bow') {
@@ -118,11 +117,7 @@ router.get('/:id', (req, res) => {
 
 // ******------------ PUT Route (UPDATE) -----------******* //
 // get edit from page
-router.get('/:id/edit', (req, res) => {
-    const prodType = req.productType;
-    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
-    const schema = prodType !== 'accessories' ? db.Product.schema.obj : db.Accesory.schema.obj;
-    console.log('get EDIT page route!')  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+router.get('/:id/edit', getProdRelatedInfo, (req, res) => {
     db.Maker.find((err, makers) => {  // in case the form needs to display Maker info
         if (err) console.log(err)
         model.findById(req.params.id, (err, foundProduct) => {
@@ -139,10 +134,8 @@ router.get('/:id/edit', (req, res) => {
 });
 
 // update any product or maker
-router.put('/:id', (req, res) => {
+router.put('/:id', getProdRelatedInfo, (req, res) => {
     // update data based on req.productType
-    const prodType = req.productType;
-    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
     model.findByIdAndUpdate(
         req.params.id,
         req.body,
@@ -153,7 +146,6 @@ router.put('/:id', (req, res) => {
             if (prodType !== 'accessories' && prodType !== 'bow') {
                 db.Maker.findOne({'products': req.params.id}, (err, foundMaker) => {
                     if (!foundMaker) {
-
                         db.Maker.findById(req.body.makerId, (err, newMaker) => {
                             newMaker.products.push(foundData);
                             newMaker.save((err, updatedMaker) => {
@@ -183,10 +175,8 @@ router.put('/:id', (req, res) => {
 
 
 // ******------------ DELETE Route (DELETE) -----------******* //
-router.delete('/:id', (req, res) => {
+router.delete('/:id', getProdRelatedInfo, (req, res) => {
     // delete data based on id and req.productType
-    const prodType = req.productType;
-    const model = prodType !== 'accessories' ? db.Product : db.Accesory;
     model.findByIdAndDelete(req.params.id, (err, deletedProduct) => {
         if (err) console.log(err)
         if (prodType !== 'accessories' && prodType !== 'bow') {
@@ -200,7 +190,6 @@ router.delete('/:id', (req, res) => {
         } else {
             res.redirect('/' + req.productType);
         }
-        console.log('deleted...', deletedProduct)
     });
 });
 

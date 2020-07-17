@@ -1,6 +1,6 @@
 Portfolio page:
 
-The shop has a bunch a very expensive cellos that they would want to be sold in a separate 'executive' shop. very very high brow. design is very important to score the gig and that's why i referenced Bishop. my css is quite bad and my design sense is not good. if you're more creative and good with css we could try... 
+The shop has a few very expensive cellos that they would want to be sold in a separate 'executive' shop. Before that can be accomplished, they need an app to help them manage their inventory.  This project is to design an app for inventory management that helps the shop track the inventories and provide a quick high level view of the inventory.   
 
 MVP Scope
 Target audience: Cello/classical music instrument store manager
@@ -34,18 +34,26 @@ User Stories
 * Beautify Detail pages (7/14)
 * DRYing code (7/14)
 
+Features
+
+* Front-end user validation/access control (login page and authentication)
+* Add, edit, delete, and show inventory
+* High level view of inventory with summary card for each product type
+* Goggle chart API 
+* Dynamically routing that allow summary card and product detail page to automatically create when new type of product is added.
+
 Enhancements
 
+* Add in Sales/financial information
 * Responsive design (mobile friendly)
 * Front-end form validation
-* Front-end user validation/access control (login page and authentication)
 * Sales data and dashboard page
 * Industry related news
 * Classical music events (links to event, youTube, etc.)
 * A page for auctioning products
 * Auction events to attend 
 * Shop events
-* employess details (names, salaries, strat date, etc)
+* employees details (names, salaries, start date, etc)
 
 Technology
 
@@ -88,7 +96,7 @@ cellos = ({
 * timeStamp
 })
 
-accesories = ({
+accessories = ({
 * name: {type: String, required: true}, // {Makers.name}
 * brand: String,
 * price: {type: Number, required: true},

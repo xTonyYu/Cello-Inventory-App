@@ -16,10 +16,14 @@
 }
 .description {
     margin: 5px 5px 70px 5px;
+    padding: 10px 15px;
     width: 100%;
 }
 .show-photo {
     box-shadow: 4px 4px 3px;
+}
+.photo {
+    width: 100%;
 }
 .card-body {
     padding: 2px 15px;
