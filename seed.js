@@ -13,7 +13,7 @@ db.Product.deleteMany({},(err, deletedData) => {
         // console.log("PRODUCT data loaded...", loadedData)
     })
 })
-db.Accesory.deleteMany({},(err, deletedData) => {
+db.Accessory.deleteMany({},(err, deletedData) => {
     if (err) console.log(err)
     console.log('Delete all doc - resetting Accessory collection')
     db.Accesory.create(starter.dataAccessories, (err, loadedData) => {
