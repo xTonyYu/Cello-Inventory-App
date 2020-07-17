@@ -29,6 +29,9 @@
     padding: 2px 15px;
     margin: 0;
 }
+h3.card-body {
+    padding: 10px
+}
 
 .btn-group {
     margin: 0 10px 5px 0;
