@@ -16,7 +16,7 @@ db.Product.deleteMany({},(err, deletedData) => {
 db.Accessory.deleteMany({},(err, deletedData) => {
     if (err) console.log(err)
     console.log('Delete all doc - resetting Accessory collection')
-    db.Accesory.create(starter.dataAccessories, (err, loadedData) => {
+    db.Accessory.create(starter.dataAccessories, (err, loadedData) => {
         if (err) console.log(err)
         console.log("ACCESSORY data loaded")
     })
