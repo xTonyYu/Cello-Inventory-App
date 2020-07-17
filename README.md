@@ -1,6 +1,6 @@
 Portfolio page:
 
-The shop has a few very expensive cellos that they would want to be sold in a separate 'executive' shop. Before that can be accomplished, they need an app to help them manage their inventory.  This project is to design an app for inventory management that helps the shop track the inventories and provide a quick high level view of the inventory.   
+ This project is designed as an app for inventory management that helps the shop track the inventories and provide a quick high level view of the inventory. The goal is to make the life of managers easier and allow them to focus more on what they want to do instead of spending half a day looking for a miss $20k cello... (i've seen that happen)
 
 MVP Scope
 Target audience: Cello/classical music instrument store manager
