@@ -3,20 +3,18 @@
 }
 body {
     background-image: url('/images/iwN3lBU.png');
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0;
-    background-size: cover;
 }
 
 
 /* header */
 .carousel-item {
     height: 200px;
-}
-.d-block {
-    vertical-align: bottom;
 }
 
 .logo {
@@ -73,10 +71,9 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px 0 60px 0;
+    margin: 20px 0 100px 0;
     width: 80vw;
     height: 100%;
-    margin-bottom: 50px;
 }
 
 

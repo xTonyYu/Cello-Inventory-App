@@ -200,7 +200,6 @@ router.delete('/:id', (req, res) => {
         } else {
             res.redirect('/' + req.productType);
         }
-        console.log('deleted...', deletedProduct)
     });
 });
 

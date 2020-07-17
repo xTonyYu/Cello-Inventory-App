@@ -24,9 +24,6 @@ router.post('/login', (req, res) => {
     // Respond with 400 If No User Found
     if (!foundEmply) {
       return res.send('No User Found');
-      // return res.render('auth/login', {
-      //   msg: "User Not Found"
-      // });
     }
 
     // Compare User Password with foundEmply Password
@@ -65,9 +62,6 @@ router.post('/register', (req, res) => {
     // Return Error If Account Already Exists
     if (foundEmply) {
       return res.send('User Already Exsists');
-      // console.log('User Already Exsists');
-      // req.msg = 'User Already Exists'
-      // res.redirect('/register');
     }
 
     // Generate Hash Salt (This just makes the password hard to crack)
