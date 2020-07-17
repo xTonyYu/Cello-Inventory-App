@@ -12,7 +12,7 @@ mongoose.connect(MONGODB_URI, {
 
 module.exports = {
   Product: require('./products'),
-  Accesory: require('./accessories'),
+  Accessory: require('./accessories'),
   Maker: require('./makers'),
   Employee: require('./employees')
 };

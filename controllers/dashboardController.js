@@ -3,10 +3,23 @@ const db = require('../models')
 const router = express.Router()
 
 
+const currencyStyle = { style: 'currency', currency: 'USD' };
+const formatToCurrency = function formatToCurrency(variable, string, currencyStyle) {
+    return Intl.NumberFormat(string, currencyStyle).format(variable);
+}
+class findMakerById {
+    constructor(prodType, totalQty, totalPrice, totalCost) {
+        this.name = prodType;
+        this.quantity = totalQty;
+        this.avgPrice =  formatToCurrency(totalPrice / totalQty, 'en-US', currencyStyle);
+        this.avgCost = formatToCurrency(totalCost / totalQty, 'en-US', currencyStyle);
+        this.avgMargin = formatToCurrency(((totalPrice - totalCost) / totalQty), 'en-US', currencyStyle);
+    }
+}
+
 // ******------------ GET Route in /dashboard-----------******* /
 router.get('/', (req, res) => {
     let allProdTypesAndAccs = [];
-    const currencyStyle = { style: 'currency', currency: 'USD' };
     db.Product.find((err, coreProducts) => {
         if (err) console.log(err)
         // find unique product types within Product collection and group/display them separately
@@ -20,37 +33,25 @@ router.get('/', (req, res) => {
                 coreProducts.forEach(product => {
                     if (product.status !== 'sold out' && product.type === prodType) {
                         totalQty += product.quantity
-                        totalPrice += product.price
-                        totalCost += product.cost
+                        totalPrice += product.price * product.quantity
+                        totalCost += product.cost * product.quantity
                     }
                 });
-                const prodObj = {
-                    name: prodType,
-                    quantity: totalQty,
-                    avgPrice: Intl.NumberFormat('en-US', currencyStyle).format(totalPrice / totalQty),
-                    avgCost: Intl.NumberFormat('en-US', currencyStyle).format(totalCost / totalQty),
-                    avgMargin: Intl.NumberFormat('en-US', currencyStyle).format((totalPrice - totalCost) / totalQty),
-                }
+                const prodObj = new findMakerById(prodType, totalQty, totalPrice, totalCost)
                 allProdTypesAndAccs.push(prodObj)
             }
             // also need to get data from accessories collection and push to allProdTypesAndAccs for display on dashboard page
-            db.Accesory.find((err, accessories) => {
+            db.Accessory.find((err, accessories) => {
                 let totalQty = 0, totalPrice = 0, totalCost = 0;
                 if (err) console.log(err)
                 accessories.forEach(accessory => {
                     if (accessory.status !== 'sold out') {
                         totalQty += accessory.quantity
-                        totalPrice += accessory.price
-                        totalCost += accessory.cost
+                        totalPrice += accessory.price * accessory.quantity
+                        totalCost += accessory.cost * accessory.quantity
                     }
                 })
-                const prodObj = {
-                    name: 'accessories',
-                    quantity: totalQty,
-                    avgPrice: Intl.NumberFormat('en-US', currencyStyle).format(totalPrice / totalQty),
-                    avgCost: Intl.NumberFormat('en-US', currencyStyle).format(totalCost / totalQty),
-                    avgMargin: Intl.NumberFormat('en-US', currencyStyle).format((totalPrice - totalCost) / totalQty),
-                }
+                const prodObj = new findMakerById('accessories', totalQty, totalPrice, totalCost)
                 allProdTypesAndAccs.push(prodObj)
                 res.render('dashboard', {
                     productTypes: allProdTypesAndAccs,

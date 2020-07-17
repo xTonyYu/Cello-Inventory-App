@@ -37,31 +37,6 @@ div .container {
     margin: 0 0 0 0;
 }
 
-/* footer */
-/* footer {
-    border-radius: 10px 10px 0 0;
-    color: lightgray;
-    display: flex;
-    position: fixed;
-    bottom: 0px;
-    justify-content: center;
-    height: 42px;
-}
-.footer-div {
-    margin: 0 3px 0 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-.about-us {
-    display: flex;
-    height: 50px;
-    padding: 3px;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0 60px 0;
-} */
 .delete-btn {
     background-color: rgba(117, 5, 5, 0.925);
 }
