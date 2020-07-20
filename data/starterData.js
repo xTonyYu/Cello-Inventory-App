@@ -60,6 +60,7 @@ const dataCellos = [{
 },
 {
     title: 'W. Seifert Fine Pernambuco Cello Bow',
+    year: 2019,
     price: 945,
     cost: 250,
     status: 'in stock',
@@ -69,6 +70,7 @@ const dataCellos = [{
 },
 {
     title: 'Hofner Electric Violin AS-160E-V',
+    year: 2020,
     price: 2595,
     cost: 850,
     status: 'in stock',
@@ -78,6 +80,7 @@ const dataCellos = [{
 },
 {
     title: 'Test Cello',
+    year: 2020,
     price: 200,
     cost: 50,
     status: 'in stock',
