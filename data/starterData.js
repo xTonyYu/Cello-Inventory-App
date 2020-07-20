@@ -32,7 +32,7 @@ const dataCellos = [{
 },
 {
     // maker: 'Andrea Guarneri (1626 - 1698)',
-    title: '',
+    title: 'Guarneri',
     year: 1740,
     price: 4000000,
     cost: 1500000,
